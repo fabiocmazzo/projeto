@@ -28,11 +28,9 @@
 			             data: form_data,
 			             success: function(response)
 			             {
-			                 
                              alert("Gravado com sucesso");
 				             window.location = "coordenadorComunidades.php";
-				                               
-                           
+				           
                        	}
 	                  	});
                   } 
@@ -89,7 +87,7 @@
                         <?php if(!isset($idCoordenador)) { ?>
                         <pre>Favor selecionar um Coordenador para associar comunidades.</prev>
                        <?php } else { ?>
-                         <select size="10" style="width:539px !important;" id="coordenadorComunidades" name="coordenadorComunidades" class="chzn-select medium-select select" multiple>
+                         <select multiple data-placeholder="Selecione comunidades &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" style="width:100%;" id="coordenadorComunidades" name="coordenadorComunidades" class="chzn-select medium-select select">
                          <?php
                                $sqlComunidade = 'select idComunidade, nmComunidade, 
                                                 (select nmMunicipio from municipio where idMunicipio = c.idMunicipio) as nmMunicipio 

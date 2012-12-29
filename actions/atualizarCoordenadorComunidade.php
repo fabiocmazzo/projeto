@@ -11,7 +11,7 @@
      
      foreach($coordenadorComunidades as $comunidade) {
         $idMunicipio = fun_retorna_municipio($comunidade);
-        $sql = 'insert into coordenador_comunidade(idCoordenador, idMunicipio, idComunidade) values (' .$idCoordenador . ',' .$municipio . ',' . $idMunicipio . ')';
+        $sql = 'insert into coordenador_comunidade(idCoordenador, idMunicipio, idComunidade) values (' .$idCoordenador . ',' . $idMunicipio . ',' . $comunidade . ')';
         $db->query($sql); 
     }
    }
