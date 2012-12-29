@@ -4,6 +4,12 @@
  ?>
  
   <script type="text/javascript">
+                      
+                    $(document).ready(function() {
+                        $("#idCoordenador").change(function() {
+                         $("#customForm").submit();
+                      });
+                    });
             
                    function gravar() {
                       if($("#customForm").validationEngine('validate')) {
@@ -50,8 +56,8 @@
          
         
         <?php
-          if(isset($_REQUEST['id'])) {
-           $idCoordenador = $_REQUEST['id'];
+          if(!empty($_REQUEST['idCoordenador'])) {
+           $idCoordenador = $_REQUEST['idCoordenador'];
           }
         ?>
         
@@ -66,13 +72,14 @@
                  <div class="elem">
                         <label>Coordenador:</label>
                         <div class="indent">
-                         <select id="idCoordenador" name="idCoordenador" class="chzn-select medium-select validate[required] select"> 
+                         <select id="idCoordenador" name="idCoordenador" class="chzn-select medium-select select"> 
+                           <option value="">Selecione um coordenador</option>
                            <?php
                                $sqlCoordenador = 'select * from coordenador order by nmCoordenador';
                                $resultCoordenador = $db->query($sqlCoordenador);
                                
                                while($rowC = $resultCoordenador->fetch_assoc()) { ?>
-                                <option value="<?=$rowC['idCoordenador']?>"<?php $rowC['idCoordenador'] == $idCoordenador ? ' selected ' : ''; ?>><?=$rowC['nmCoordenador']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                                <option value="<?=$rowC['idCoordenador']?>"<?php if($rowC['idCoordenador'] == $idCoordenador) { ?>  selected <?php } ?>><?=$rowC['nmCoordenador']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
                                <?php } ?>
                         </select>   
                         </div>
@@ -86,26 +93,22 @@
                        <?php } else { ?>
                          <select size="10" style="width:539px !important;" id="coordenadorMunicipios" name="coordenadorMunicipios" class="chzn-select medium-select select" multiple >
                          <?php
-                               $sqlMunicipio = 'select * from municipio order by nmMunicipio';
+                               $sqlMunicipio = 'select idMunicipio, nmMunicipio, case when (select count(*) ' . 
+											   'from coordenador_comunidade ' .
+										       'where idComunidade is null ' .
+											   'and idMunicipio = m.idMunicipio ' .
+										       'and idCoordenador = ' . $idCoordenador . ') > 0 then "selected" end as selecionado  from municipio m order by nmMunicipio';
                                $resultMunicipio = $db->query($sqlMunicipio);
                                
                                while($rowM = $resultMunicipio->fetch_assoc()) { ?>
-                                <option value="<?=$rowC['idCoordenador']?>"<?php $rowC['idCoordenador'] == $row['idCoordenador'] ? ' selected ' : ''; ?>><?=$rowC['nmCoordenador']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                                <option value="<?=$rowM['idMunicipio']?>"  <?=$rowM['selecionado']?>><?=$rowM['nmMunicipio']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
                                <?php } ?>
                         </select> 
                  <?php } ?>
                         </div>
                  </div>
                
-
-                  <div class="elem">
-                        <label>Atende:</label>
-                        <div class="indent">
-                          <p><input type="checkbox" name="isFamilia" id="isFamilia" value="S" class="styled"  <?php if($row['isFamilia'] == 'S')  { ?>  checked <?php } ?> /> <label>Família</label></p>
-                          <p><input type="checkbox" name="isComunidade" id="isComunidade" value="S" class="styled"  <?php if($row['isComunidade'] == 'S')  { ?>  checked <?php } ?>/> <label>Comunidade</label></p>
-   
-                        </div>
-                 </div>                  
+                 
             	 <div class="elem">
                         
                         <div class="indent">

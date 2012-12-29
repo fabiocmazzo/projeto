@@ -32,9 +32,9 @@
     <script src="lib/jquery.validationEngine-pt.js" type="text/javascript" charset="utf-8"></script>
     
     <script type="text/javascript" src="lib/ddaccordion.js"></script>
-	<script type="text/javascript" src="lib/jquery.flot.min.js"></script>
+<!--	<script type="text/javascript" src="lib/jquery.flot.min.js"></script>
     <script type="text/javascript" src="lib/jquery.flot.pie.js"></script>
-    <script type="text/javascript" src="lib/jquery.flot.orderBars.js"></script>
+    <script type="text/javascript" src="lib/jquery.flot.orderBars.js"></script> -->
     <script type="text/javascript" src="lib/fancybox/fancybox.js"></script>
     <script type="text/javascript" src="lib/fullcalendar.min.js"></script>
     <script src="lib/elfinder/js/elfinder.min.js" charset="utf-8"></script>
@@ -43,14 +43,14 @@
 	<script src="lib/editor/default.js" charset="utf-8"></script>
     <script src="lib/editor/wysiwyg.link.js" charset="utf-8"></script>
     <script src="lib/editor/wysiwyg.table.js" charset="utf-8"></script>
-    <script type="text/javascript" src="lib/player/jquery-jplayer/jquery.jplayer.js"></script>
-    <script type="text/javascript" src="lib/player/ttw-video-player-min.js"></script>
+   <!-- <script type="text/javascript" src="lib/player/jquery-jplayer/jquery.jplayer.js"></script>
+    <script type="text/javascript" src="lib/player/ttw-video-player-min.js"></script> -->
     <script src="lib/jquery.tipTip.minified.js"></script>
     <script src="lib/forms.js"></script>
     <script src="lib/chosen.jquery.min.js"></script>
     <script src="lib/autoresize.jquery.min.js"></script>
     <script type="text/javascript" src="lib/colorpicker.js"></script>
-	<script type="text/javascript" src="lib/validation.js"></script>
+	<!-- <script type="text/javascript" src="lib/validation.js"></script> -->
     <script src="lib/jquery.dataTables.min.js"></script>
     <script src="lib/jquery.jgrowl_minimized.js"></script>
     <script src="lib/slidernav-min.js"></script>
