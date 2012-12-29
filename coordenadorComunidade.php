@@ -13,12 +13,12 @@
             
                    function gravar() {
                       if($("#customForm").validationEngine('validate')) {
-                      	var action = '/actions/atualizarCoordenadorMunicipio.php';
+                      	var action = '/actions/atualizarCoordenadorComunidade.php';
                        
                        
                         var form_data = {
 			              idCoordenador: $("#idCoordenador").val(),
-			              coordenadorMunicipios: $("#coordenadorMunicipios").val()
+			              coordenadorMunicipios: $("#coordenadorComunidades").val()
                           
 			             }; 
                          
@@ -30,7 +30,7 @@
 			             {
 			                 
                              alert("Gravado com sucesso");
-				             window.location = "coordenadorMunicipio.php";
+				             window.location = "coordenadorComunidades.php";
 				                               
                            
                        	}
@@ -39,7 +39,7 @@
                   }
                   
                   function cancelar() {
-                    window.location = "coordenadorMunicipio.php";
+                    window.location = "coordenadorComunidades.php";
                   }
                   
                   
@@ -63,7 +63,7 @@
         	<!--Form-->
         
         <div class="grid-1">
-           <div class="title-grid">Associar Municípios a um Coordenador</div>
+           <div class="title-grid">Associar Comunidades a um Coordenador</div>
            <div class="content-gird">
            <div class="form">
           	 <form method="post" id="customForm" action="#">
@@ -84,24 +84,26 @@
                  </div>
                  
                  <div class="elem">
-                        <label>Municípios:</label>
+                        <label>Comunidades:</label>
                         <div class="indent">
                         <?php if(!isset($idCoordenador)) { ?>
-                        <pre>Favor selecionar um Coordenador para associar municípios.</prev>
+                        <pre>Favor selecionar um Coordenador para associar comunidades.</prev>
                        <?php } else { ?>
-                         <select size="10" style="width:539px !important;" id="coordenadorMunicipios" name="coordenadorMunicipios" class="chzn-select medium-select select" multiple >
+                         <select size="10" style="width:539px !important;" id="coordenadorComunidades" name="coordenadorComunidades" class="chzn-select medium-select select" multiple>
                          <?php
-                               $sqlMunicipio = 'select idMunicipio, nmMunicipio, case when (select count(*) ' . 
-											   'from coordenador_comunidade ' .
-										       'where idComunidade is null ' .
-											   'and idMunicipio = m.idMunicipio ' .
-										       'and idCoordenador = ' . $idCoordenador . ') > 0 then "selected" end as selecionado  from municipio m order by nmMunicipio';
-                               $resultMunicipio = $db->query($sqlMunicipio);
+                               $sqlComunidade = 'select idComunidade, nmComunidade, 
+                                                (select nmMunicipio from municipio where idMunicipio = c.idMunicipio) as nmMunicipio 
+                                                , case when (select count(*) from coordenador_comunidade where idComunidade = c.idComunidade
+							                     and idMunicipio = c.idMunicipio and idCoordenador = '. $idCoordenador . ') > 0 then "selected" end as selecionado 
+                                                 from comunidade c where c.idMunicipio not in 
+                                                 (select idMunicipio from coordenador_comunidade where idComunidade is null and idCoordenador = '. $idCoordenador .')';
+                               $resultComunidade = $db->query($sqlComunidade);
                                
-                               while($rowM = $resultMunicipio->fetch_assoc()) { ?>
-                                <option value="<?=$rowM['idMunicipio']?>"  <?=$rowM['selecionado']?>><?=$rowM['nmMunicipio']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                               while($rowC = $resultComunidade->fetch_assoc()) { ?>
+                                <option value="<?=$rowC['idComunidade']?>"  <?=$rowC['selecionado']?>><?=$rowC['nmComunidade']?> - <?=$rowC['nmMunicipio']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
                                <?php } ?>
                         </select> 
+                        <h5>Não serão apresentadas comunidades dos municipios que o coordenador já está associado.</h5>
                  <?php } ?>
                         </div>
                  </div>
