@@ -18,7 +18,7 @@
                        
                         var form_data = {
 			              idCoordenador: $("#idCoordenador").val(),
-			              coordenadorMunicipios: $("#coordenadorComunidades").val()
+			              coordenadorComunidades: $("#coordenadorComunidades").val()
                           
 			             }; 
                          

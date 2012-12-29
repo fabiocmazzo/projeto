@@ -1,7 +1,7 @@
 <?php
 
     require_once 'class.Db.php';
-    
+    require_once 'funcoes.php';
    
     define('ENVIRONMENT','dev'); // Enquanto essa constante for dev exibirá todos os erros do banco de dados
     
