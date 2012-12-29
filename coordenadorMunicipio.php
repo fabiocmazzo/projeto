@@ -13,14 +13,12 @@
             
                    function gravar() {
                       if($("#customForm").validationEngine('validate')) {
-                      	var action = '/actions/atualizarPesquisador.php';
+                      	var action = '/actions/atualizarCoordenadorMunicipio.php';
+                       
+                       
                         var form_data = {
-			              idPesquisador: $("#idPesquisador").val(),
-			              nmPesquisador: $("#nmPesquisador").val(),
-                          idCoordenador: $("#idCoordenador").val(),
-                          tipo:          $("#tipo").val(),
-                          isFamilia:     $("#isFamilia:checked").val(),
-                          isComunidade:  $("#isComunidade:checked").val()
+			              idCoordenador: $("#idCoordenador").val(),
+			              coordenadorMunicipios: $("#coordenadorMunicipios").val()
                           
 			             }; 
                          
@@ -30,9 +28,10 @@
 			             data: form_data,
 			             success: function(response)
 			             {
-				             
+			                 
+				             alert(response);
                              alert("Gravado com sucesso");
-				             window.location = "pesquisadores.php";
+				             window.location = "coordenadorMunicipio.php";
 				                               
                            
                        	}
@@ -41,7 +40,7 @@
                   }
                   
                   function cancelar() {
-                    window.location = "pesquisadores.php";
+                    window.location = "coordenadorMunicipio.php";
                   }
                   
                   
@@ -86,7 +85,7 @@
                  </div>
                  
                  <div class="elem">
-                        <label>Multiple select:</label>
+                        <label>Municípios:</label>
                         <div class="indent">
                         <?php if(!isset($idCoordenador)) { ?>
                         <pre>Favor selecionar um Coordenador para associar municípios.</prev>
