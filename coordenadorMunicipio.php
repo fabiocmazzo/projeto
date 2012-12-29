@@ -50,13 +50,10 @@
          
         
         <?php
-        
-             if(isset($_REQUEST['id'])) {
-                $idPesquisador = $_REQUEST['id'];
-                $sql = 'select * from pesquisador where idPesquisador = ' . $idPesquisador;
-                $result = $db->query($sql);
-                $row = $result->fetch_assoc();
-             } ?>
+          if(isset($_REQUEST['id'])) {
+           $idCoordenador = $_REQUEST['id'];
+          }
+        ?>
         
         
         	<!--Form-->
@@ -71,11 +68,11 @@
                         <div class="indent">
                          <select id="idCoordenador" name="idCoordenador" class="chzn-select medium-select validate[required] select"> 
                            <?php
-                               $sqlCoordenador = 'select * from coordenador';;
+                               $sqlCoordenador = 'select * from coordenador order by nmCoordenador';
                                $resultCoordenador = $db->query($sqlCoordenador);
                                
                                while($rowC = $resultCoordenador->fetch_assoc()) { ?>
-                                <option value="<?=$rowC['idCoordenador']?>"<?php $rowC['idCoordenador'] == $row['idCoordenador'] ? ' selected ' : ''; ?>><?=$rowC['nmCoordenador']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                                <option value="<?=$rowC['idCoordenador']?>"<?php $rowC['idCoordenador'] == $idCoordenador ? ' selected ' : ''; ?>><?=$rowC['nmCoordenador']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
                                <?php } ?>
                         </select>   
                         </div>
@@ -84,14 +81,19 @@
                  <div class="elem">
                         <label>Multiple select:</label>
                         <div class="indent">
-                         <SELECT size="10" style="width:539px !important;" id="coordenadorMunicipios" name="coordenadorMunicipios" class="chzn-select medium-select select" multiple >
-                         <OPTION VALUE="o1" selected>Some text goes here</OPTION>
-                         <OPTION VALUE="o2">Option 2</OPTION>
-                         <OPTION VALUE="o3">Optasdasdasdasdasdion 3</OPTION>
-                         <OPTION VALUE="o4" selected>Option 4</OPTION>
-                         <OPTION VALUE="o5">Optasdasdasdasdasdasdasdasdasdasdasdasdion 5</OPTION>
-                         <OPTION VALUE="o6">Optasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdion 6</OPTION>
-                        </SELECT> 
+                        <?php if(!isset($idCoordenador)) { ?>
+                        <pre>Favor selecionar um Coordenador para associar municípios.</prev>
+                       <?php } else { ?>
+                         <select size="10" style="width:539px !important;" id="coordenadorMunicipios" name="coordenadorMunicipios" class="chzn-select medium-select select" multiple >
+                         <?php
+                               $sqlMunicipio = 'select * from municipio order by nmMunicipio';
+                               $resultMunicipio = $db->query($sqlMunicipio);
+                               
+                               while($rowM = $resultMunicipio->fetch_assoc()) { ?>
+                                <option value="<?=$rowC['idCoordenador']?>"<?php $rowC['idCoordenador'] == $row['idCoordenador'] ? ' selected ' : ''; ?>><?=$rowC['nmCoordenador']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                               <?php } ?>
+                        </select> 
+                 <?php } ?>
                         </div>
                  </div>
                
