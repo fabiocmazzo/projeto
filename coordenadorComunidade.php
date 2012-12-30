@@ -29,7 +29,7 @@
 			             success: function(response)
 			             {
                              alert("Gravado com sucesso");
-				             window.location = "coordenadorComunidades.php";
+				             window.location = "coordenadorComunidade.php";
 				           
                        	}
 	                  	});
@@ -37,7 +37,7 @@
                   }
                   
                   function cancelar() {
-                    window.location = "coordenadorComunidades.php";
+                    window.location = "coordenadorComunidade.php";
                   }
                   
                   

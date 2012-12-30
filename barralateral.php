@@ -33,7 +33,7 @@
 				<li><a href="/addSubLote.php"><span class="w-editor icon">Adicionar</span></a></li>
             </ul>
 		</li>
-  		<li <?php if($pagina == 'coordenadores' || $pagina == 'addCordenador') {?>class="expand"<?php } ?>>
+  		<li <?php if(in_array($pagina,array('coordenadores','addCoordenador','coordenadorComunidade','coordenadorMunicipio'))) {?>class="expand"<?php } ?>>
 			<a href="#"><span class="files icon">Coordenador</span><span class="num">4</span></a>
 			<ul class="acitem">
 				<li><a href="/coordenadores.php"><span class="invoice icon">Listar</span></a></li>
