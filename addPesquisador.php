@@ -14,7 +14,8 @@
                           idCoordenador: $("#idCoordenador").val(),
                           tipo:          $("#tipo").val(),
                           isFamilia:     $("#isFamilia:checked").val(),
-                          isComunidade:  $("#isComunidade:checked").val()
+                          isComunidade:  $("#isComunidade:checked").val(),
+                          CPF:           $("#CPF").val()
                           
 			             }; 
                          
@@ -83,7 +84,15 @@
                         </div>
                  </div>
               
-                 
+                 <div class="elem">
+                        <label>CPF: </label>
+                        <div class="indent">
+                            <input type="text" id="CPF" name="CPF" maxlength="11" value="<?=$row['CPF']?>" class="medium text-input"> 
+                        </div>
+                 </div>    
+                 <script type="text/javascript">
+                   $("#CPF").numeric({ decimal: false, negative: false }, function() { alert("Somente números"); this.value = ""; this.focus(); });
+                 </script>
                  <div class="elem">
                         <label>Coordenador:</label>
                         <div class="indent">
@@ -104,7 +113,7 @@
                         <div class="indent">
                          <select id="tipo" name="tipo" class="chzn-select medium-select validate[required] select"> 
                            <option value="A"<?php  'A' == $row['tipo'] ? ' selected ' : ''; ?>>Assistente Social&nbsp;&nbsp;&nbsp;&nbsp;</option>
-                           <option value="T"<?php  'A' == $row['tipo'] ? ' selected ' : ''; ?>>Técnico de Campo&nbsp;&nbsp;&nbsp;&nbsp;</option>                           
+                           <option value="T"<?php  'T' == $row['tipo'] ? ' selected ' : ''; ?>>Técnico de Campo&nbsp;&nbsp;&nbsp;&nbsp;</option>                           
                         </select>   
                         </div>
                  </div>                 

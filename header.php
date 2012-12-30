@@ -59,6 +59,7 @@
     
     
     <script type="text/javascript" src="lib/functions.js"></script>
+    <script type="text/javascript" src="lib/jquery.numeric.js"></script>
     
 </head>
 
