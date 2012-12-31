@@ -51,7 +51,17 @@
                 <li><a href="/pesquisadorLote.php"><span class="forms icon">Associar Lotes</span></a></li>
                 <li><a href="/pesquisadorSubLote.php"><span class="forms icon">Associar SubLotes</span></a></li>
             </ul>
-		</li>              
+		</li>  
+       <?php if($_SESSION['isAdmin'] == 'S') { ?>
+           <li <?php if($pagina == 'usuarios' || $pagina == 'addUsuario') {?>class="expand"<?php } ?>>
+    			<a href="#"><span class="files icon">Usuários</span><span class="num">2</span></a>
+    			<ul class="acitem">
+    				<li><a href="/usuarios.php"><span class="invoice icon">Listar</span></a></li>
+    				<li><a href="/addUsuario.php"><span class="w-editor icon">Adicionar</span></a></li>
+                </ul>
+    		</li>
+       <?php } ?>
+            
 	</ul>	
    
         
