@@ -90,7 +90,7 @@
         </ul>
       </nav>  
       
-      <div class="account-name"><p><span class="welcome">Bem Vindo,</span> <strong><?=$_SESSION['usuarioLogado']?></strong></p><div class="account-separator"></div></div>
+      <div class="account-name"><p><span class="welcome">Bem Vindo,</span> <strong><?=$_SESSION['nomeUsuario']?></strong></p><div class="account-separator"></div></div>
         <div class="account-name">
         <div class="account-separator"></div></div>
       <!-- Navigation end-->

@@ -13,12 +13,12 @@
             
                    function gravar() {
                       if($("#customForm").validationEngine('validate')) {
-                      	var action = '/actions/atualizarPesquisadorComunidade.php';
+                      	var action = '/actions/atualizarPesquisadorLote.php';
                        
                        
                         var form_data = {
 			              idPesquisador: $("#idPesquisador").val(),
-			              pesquisadorComunidades: $("#pesquisadorComunidades").val()
+			              pesquisadorLotes: $("#pesquisadorLotes").val()
                           
 			             }; 
                          
@@ -28,8 +28,9 @@
 			             data: form_data,
 			             success: function(response)
 			             {
+                     
                              alert("Gravado com sucesso");
-				             window.location = "pesquisadorComunidade.php";
+				             window.location = "pesquisadorLote.php";
 				           
                        	}
 	                  	});
@@ -37,7 +38,7 @@
                   }
                   
                   function cancelar() {
-                    window.location = "pesquisadorComunidade.php";
+                    window.location = "pesquisadorLote.php";
                   }
                   
                   
@@ -61,7 +62,7 @@
         	<!--Form-->
         
         <div class="grid-1">
-           <div class="title-grid">Associar Comunidades a um Pesquisador</div>
+           <div class="title-grid">Associar Lotes a um Pesquisador</div>
            <div class="content-gird">
            <div class="form">
           	 <form method="post" id="customForm" action="#">
@@ -82,28 +83,25 @@
                  </div>
                  
                  <div class="elem">
-                        <label>Comunidades:</label>
+                        <label>Lotes:</label>
                         <div class="indent">
                         <?php if(!isset($idPesquisador)) { ?>
-                        <pre>Favor selecionar um pesquisador para associar comunidades.</prev>
+                        <pre>Favor selecionar um pesquisador para associar lotes.</prev>
                        <?php } else { ?>
-                         <select multiple data-placeholder="Selecione comunidades &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" style="width:100%;" id="pesquisadorComunidades" name="pesquisadorComunidades" class="chzn-select medium-select select">
+                         <select multiple data-placeholder="Selecione lotes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" style="width:100%;" id="pesquisadorLotes" name="pesquisadorLotes" class="chzn-select medium-select select">
                          <?php
-                               $sqlComunidade = 'select 
-                                                    idComunidade,
-                                                    nmComunidade,
-                                                    (select 
-                                                            nmMunicipio
+                               $sqlLote = '   select idLote, nmLote, (select 
+                                                            nmComunidade
                                                         from
-                                                            municipio
+                                                            comunidade
                                                         where
-                                                            idMunicipio = c.idMunicipio) as nmMunicipio,
-                                                      case when (select count(*) from pesquisador_sublote where idComunidade = c.idComunidade
-							                     and idLote is null and idSubLote is null and idPesquisador = '. $idPesquisador . ') > 0 then "selected" end as selecionado
+                                                            idComunidade = l.idComunidade) as nmComunidade,
+                                                            case when (select count(*) from pesquisador_sublote where idComunidade = l.idComunidade
+							                     and idLote = l.idLote and idSubLote is null and idPesquisador = '. $idPesquisador . ') > 0 then "selected" end as selecionado
                                                 from
-                                                    comunidade c
+                                                    lote l
                                                 where
-                                                    c.idComunidade in (
+                                                    l.idComunidade in (
                                                     
                                                       select 
                                                             idComunidade
@@ -125,13 +123,13 @@
                                                             and idComunidade is null))';
 
 
-                               $resultComunidade = $db->query($sqlComunidade);
+                               $resultLote = $db->query($sqlLote);
                                
-                               while($rowC = $resultComunidade->fetch_assoc()) { ?>
-                                <option value="<?=$rowC['idComunidade']?>"  <?=$rowC['selecionado']?>><?=$rowC['nmComunidade']?> - <?=$rowC['nmMunicipio']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                               while($rowL = $resultLote->fetch_assoc()) { ?>
+                                <option value="<?=$rowL['idLote']?>"  <?=$rowL['selecionado']?>><?=$rowL['nmLote']?> - <?=$rowL['nmComunidade']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
                                <?php } ?>
                         </select> 
-                        <h5>Só serão exibidas comunidades que o coordenador do pesquisador tem acesso.</h5>
+                        <h5>Só serão exibidos lotes que o coordenador do pesquisador tem acesso.</h5>
                  <?php } ?>
                         </div>
                  </div>

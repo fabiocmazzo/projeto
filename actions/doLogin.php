@@ -11,13 +11,14 @@
 
     if (!empty($row)) {
         $_SESSION['usuarioLogado'] = $row['username'];
+        $_SESSION['nomeUsuario'] = $row['nome'];
         $_SESSION['logado'] = true;
         echo 'sucesso';
     } else {
        
         $_SESSION['usuarioLogado'] = '';
         $_SESSION['logado'] = false;
-       
+        $_SESSION['nomeUsuario'] = ''; 
        echo 'Usuario ou senha inválidos';
        
     }

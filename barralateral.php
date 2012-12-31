@@ -42,7 +42,7 @@
                <li><a href="/coordenadorComunidade.php"><span class="forms icon">Associar Comunidades</span></a></li>
             </ul>
 		</li>   
-  		<li <?php if($pagina == 'pesquisadores' || $pagina == 'addPesquisador') {?>class="expand"<?php } ?>>
+  		<li <?php if(in_array($pagina,array('pesquisadores','addPesquisador','pesquisadorComunidade','pesquisadorLote','pesquisadorSubLote'))) {?>class="expand"<?php } ?>>
 			<a href="#"><span class="files icon">Pesquisador</span><span class="num">5</span></a>
 			<ul class="acitem">
 				<li><a href="/pesquisadores.php"><span class="invoice icon">Listar</span></a></li>
