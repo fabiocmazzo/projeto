@@ -11,6 +11,7 @@
                         var form_data = {
 			              username:      $("#username").val(),
 			              nome:          $("#nome").val(),
+                          password:      $("#password").val(),
                           isAdmin:       $("#isAdmin:checked").val(),
                           status:        $("#status:checked").val()
                           
@@ -22,7 +23,7 @@
 			             data: form_data,
 			             success: function(response)
 			             {
-				             
+			             
                              alert("Gravado com sucesso");
 				             window.location = "usuarios.php";
 				                               
@@ -51,7 +52,7 @@
         
              if(isset($_REQUEST['id']) && $_SESSION['isAdmin'] == 'S') {
                 $username = $_REQUEST['id'];
-                $sql = 'select * from usuarios where username = ' . $username;
+                $sql = 'select * from usuarios where username = "' . $username . '"';
                 $result = $db->query($sql);
                 $row = $result->fetch_assoc();
              } ?>

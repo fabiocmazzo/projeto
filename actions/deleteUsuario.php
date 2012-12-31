@@ -5,7 +5,7 @@
     $username =  $_REQUEST['id'];
        
     if($_SESSION['isAdmin'] == 'S') {
-        $sql = 'delete from usuarios where username = '. $username;
+        $sql = 'delete from usuarios where username = "'. $username . '"';
         $db->query($sql);
 	}
     
