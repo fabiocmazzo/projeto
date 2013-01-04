@@ -1,5 +1,4 @@
 <?php 
-
 function apache_request_headers() {
   $arh = array();
   $rx_http = '/\AHTTP_/';
@@ -45,27 +44,27 @@ function apache_request_headers() {
        
        /* Vou tentar converter pra JSON e inserir no MongoDB, se der errado gravarei o nome do arquivo em um log
           no MYSQL */
+         $ext = pathinfo($file['name']);
          
-        $conteudoXML = simplexml_load_string(file_get_contents("formularios/" . $file['name'] ));
-       // $jsonConteudo =  json_encode($conteudoXML);
-          
-    
-         
-       
-       
-       try {
+         if('xml' == $ext['extension']) {
         
-           
-           $colecao = $dbMongo->familias;
-           //  $colecao->insert(json_decode($jsonConteudo));
-           $colecao->insert($conteudoXML);
-       
-       } catch (Exception $e) {
-         $sql = 'insert into log(error_msg) values ("erro de conversao")';
-         $db->query($sql); 
-       }
-       
-       
+        
+          $conteudoXML = simplexml_load_string(file_get_contents("formularios/" . $file['name'] ));
+         // $jsonConteudo =  json_encode($conteudoXML);
+          
+               try {
+                
+                   
+                   $colecao = $dbMongo->familias;
+                   //  $colecao->insert(json_decode($jsonConteudo));
+                   $colecao->insert($conteudoXML);
+               
+               } catch (Exception $e) {
+                 $sql = 'insert into log(error_msg) values ("erro de conversao")';
+                 $db->query($sql); 
+               }
+               
+        }  
     }     
     
      
