@@ -58,6 +58,7 @@
                      
                         <th class="th_id">Código</th>
                         <th class="th_status">Nome</th>
+                        <th class="th_date">UF</th> 
                         <th class="th_date">Código IBGE</th>               
                         <th class="th_chexbox"> </th>
                     </tr>
@@ -70,6 +71,7 @@
                     <tr class="item">
                         <td class="subject"><a href="addMunicipio.php?id=<?=$row['idMunicipio']?>"><?=$row['idMunicipio']?></a></td>
                         <td><span class="published"><?=$row['nmMunicipio']?></span></td>
+                        <td><?=$row['UF']?></td>
                         <td><?=$row['cdIBGE']?></td>
                         <td class="action"><a href="#"><img onclick="deleteMunicipio(<?=$row['idMunicipio']?>);" src="images/del.png" alt="delete"></a></td>
                     </tr>

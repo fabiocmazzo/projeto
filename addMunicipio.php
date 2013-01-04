@@ -12,7 +12,8 @@
                         var form_data = {
 			              idMunicipio: $("#idMunicipio").val(),
 			              nmMunicipio: $("#nmMunicipio").val(),
-                          cdIBGE: $("#cdIBGE").val()
+                          UF:          $("#UF").val(),
+                          cdIBGE:      $("#cdIBGE").val()
 			             }; 
                          
                        $.ajax({
@@ -79,8 +80,22 @@
                             <input type="text" id="nmMunicipio" name="nmMunicipio" maxlength="100" value="<?=$row['nmMunicipio']?>" class="medium validate[required] text-input"> 
                         </div>
                  </div>
-              
-                 
+               <div class="elem">
+                        <label>Estado:</label>
+                        <div class="indent">
+                          <select name="UF" id="UF" class="chzn-select medium-select validate[required] select">
+                             <option value="">Selecione...</option>
+                             <?php
+                               $sqlEstado = 'select * from estado order by UF';
+                               $resultEstado = $db->query($sqlEstado);
+                               
+                               while($rowE = $resultEstado->fetch_assoc()) { ?>
+                                <option value="<?=$rowE['UF']?>"<?php $rowE['UF'] == $row['UF'] ? ' selected ' : ''; ?> ><?=$rowE['descricao']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                             <?php } ?>
+                        </select>   
+                         </select>
+                  </div>
+             </div>
                  <div class="elem">
                         <label>Código IBGE:</label>
                         <div class="indent">

@@ -98,7 +98,7 @@
                         <div class="indent">
                          <select id="idCoordenador" name="idCoordenador" class="chzn-select medium-select validate[required] select"> 
                            <?php
-                               $sqlCoordenador = 'select * from coordenador';;
+                               $sqlCoordenador = 'select * from coordenador';
                                $resultCoordenador = $db->query($sqlCoordenador);
                                
                                while($rowC = $resultCoordenador->fetch_assoc()) { ?>

@@ -21,28 +21,51 @@ function apache_request_headers() {
 }
 
 
-  
+    
    
     require_once 'includes/configxml.php';
     
-   // $deviceID = $_REQUEST['deviceID'];
-   // $sql = 'insert into pesquisa_recebida(aparelho) values ("' . $deviceID . '")';
-   // $db->query($sql);
-    
- /*    foreach ($_REQUEST as $name => $value) {
-     $sql = 'insert into pesquisa_recebida(aparelho) values ("' . $name . ' -- ' . $value . '")';
-     $db->query($sql);
-    }
-    
-    $headers = apache_request_headers(); */
-
-
+    try 
+        {
+         $mongo = new MongoClient(); // connect
+         $dbMongo = $mongo->selectDB("local");
+       } catch (Exception $e) {
+         $sql = 'insert into log(error_msg) values ("erro de conexao")';
+         $db->query($sql);
+       }
+       
     
     
     foreach($_FILES as $file) {
+       
+      
        move_uploaded_file($file["tmp_name"], "formularios/" . $file['name']);
        $sql = 'insert into pesquisa_recebida(aparelho) values ("' . $file['name'] . '")';
        $db->query($sql);
+       
+       /* Vou tentar converter pra JSON e inserir no MongoDB, se der errado gravarei o nome do arquivo em um log
+          no MYSQL */
+         
+        $conteudoXML = simplexml_load_string(file_get_contents("formularios/" . $file['name'] ));
+       // $jsonConteudo =  json_encode($conteudoXML);
+          
+    
+         
+       
+       
+       try {
+        
+           
+           $colecao = $dbMongo->familias;
+           //  $colecao->insert(json_decode($jsonConteudo));
+           $colecao->insert($conteudoXML);
+       
+       } catch (Exception $e) {
+         $sql = 'insert into log(error_msg) values ("erro de conversao")';
+         $db->query($sql); 
+       }
+       
+       
     }     
     
      
