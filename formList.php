@@ -29,7 +29,11 @@
 <forms>
    <?php while($row = $result->fetch_assoc()) { ?>
    <?php if($row['isFamilia'] == 'S') { ?>
-    <form url="http://www.cadastrofamilias.com.br/xml/familia.php?idPesquisador=<?=$row['idPesquisador']?>&amp;idLote=<?=$row['idLote']?>&amp;idSubLote=<?=$row['idSubLote']?>&amp;idComunidade=<?=$row['idComunidade']?>">Pesquisa Familia - <?=$row['nmPesquisador']?> - <?=$row['nmComunidade']?><?php if($row['nmLote'] != "") { ?> - <?php } ?><?=$row['nmLote']?><?php if($row['nmSubLote'] != "") { ?> - <?php } ?><?=$row['nmSubLote']?></form> 
+    <form url="http://www.cadastrofamilias.com.br/xml/familia.php?idPesquisador=<?=$row['idPesquisador']?>&amp;idLote=<?=$row['idLote']?>&amp;idSubLote=<?=$row['idSubLote']?>&amp;idComunidade=<?=$row['idComunidade']?>">Pesquisa Familia - <?=$row['nmComunidade']?><?php if($row['nmLote'] != "") { ?> - <?php } ?><?=$row['nmLote']?><?php if($row['nmSubLote'] != "") { ?> - <?php } ?><?=$row['nmSubLote']?></form> 
+   <?php }
+    if($row['isComunidade'] == 'S') { ?>
+    <form url="http://www.cadastrofamilias.com.br/xml/comunidade.php?idPesquisador=<?=$row['idPesquisador']?>&amp;idComunidade=<?=$row['idComunidade']?>">Pesquisa Comunidade - <?=$row['nmComunidade']?></form> 
    <?php }
        } ?>
+   <form url="http://www.cadastrofamilias.com.br/xml/acaosocial.php?idPesquisador=<?=$idPesquisador?>">Pesquisa Ação Social</form>       
 </forms><?php } ?>

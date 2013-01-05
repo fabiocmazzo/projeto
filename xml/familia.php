@@ -35,7 +35,7 @@
  ?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
   <h:head>
-    <h:title>Cadastro Familia - <?=$row['nmPesquisador']?></h:title>
+    <h:title>Cadastro Familia - <?=$rowC['nmComunidade']?> <?=$rowC['nmLote']?> <?=$rowC['nmSubLote']?></h:title>
     <model>
       <instance>
         <data id="build_Cadastro-Familia_1357260891">
@@ -43,6 +43,9 @@
             <instanceID/>
           </meta>
           <responsavel>
+           <idresponsavel>
+               <?=$row['idPesquisador']?>
+             </idresponsavel>
             <nomeresponsavel>
               <?=$row['nmPesquisador']?>
             </nomeresponsavel>
