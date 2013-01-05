@@ -101,6 +101,8 @@
             <rgresponsavel/>
             <Orgao/>
             <nis/>
+            <inss/>
+            <apelido/>
           </responsavelunidadefamiliar>
           <dadosconjuge>
             <nomeconjuge/>
@@ -284,6 +286,7 @@
             <outrotipo/>
           </outraatividade>
           <agriculturafinalidade>
+            <qualagricultura/>
             <finalidadeagricultura/>
             <areavenda/>
             <areaconsumo/>
@@ -590,6 +593,17 @@
               NIS
             </value>
           </text>
+          <text id="/data/responsavelunidadefamiliar/inss:label">
+            <value>
+              INSS
+            </value>
+          </text>
+          <text id="/data/responsavelunidadefamiliar/apelido:label">
+            <value>
+              Apelido
+            </value>
+          </text>
+          
           <text id="/data/dadosconjuge:label">
             <value>
               Dados do Cônjuge do Responsável
@@ -681,7 +695,7 @@
           </text>
           <text id="/data/composicaogrupofamiliar/criancasate06anos:label">
             <value>
-              Número de crianças com idade ate 06 anos:
+              Número de crianças com idade até 06 anos:
             </value>
           </text>
           <text id="/data/composicaogrupofamiliar/criancasnaescola:label">
@@ -2366,7 +2380,12 @@
               Finalidade da Agricultura
             </value>
           </text>
-          <text id="/data/agriculturafinalidade/finalidadeagricultura:label">
+          <text id="/data/agriculturafinalidade/qualagricultura:label">
+            <value>
+              Qual tipo de agricultura é cultivada?
+            </value>
+          </text>
+           <text id="/data/agriculturafinalidade/finalidadeagricultura:label">
             <value>
               Selecione a finalidade da atividade de agricultura da propriedade:
             </value>
@@ -2555,6 +2574,8 @@
       <bind nodeset="/data/responsavelunidadefamiliar/rgresponsavel" type="string"/>
       <bind nodeset="/data/responsavelunidadefamiliar/Orgao" type="string"/>
       <bind nodeset="/data/responsavelunidadefamiliar/nis" type="string"/>
+      <bind nodeset="/data/responsavelunidadefamiliar/inss" type="string"/>
+      <bind nodeset="/data/responsavelunidadefamiliar/apelido" type="string"/>
       <bind nodeset="/data/dadosconjuge/nomeconjuge" type="string"/>
       <bind nodeset="/data/dadosconjuge/cpfconjuge" type="string"/>
       <bind nodeset="/data/dadosconjuge/rgconjuge" type="string"/>
@@ -2578,11 +2599,11 @@
       <bind nodeset="/data/esgoto/banheiro" type="select1"/>
       <bind nodeset="/data/esgoto/esgotamentosanitario" type="select1"/>
       <bind nodeset="/data/tipoesgotamento" type="select" relevant="(selected(/data/esgoto/esgotamentosanitario,'sim'))"/>
-      <bind nodeset="/data/outroesgotamento" type="string" relevant="(selected(/data/esgoto/tiposesgotamento,'outros'))"/>
+      <bind nodeset="/data/outroesgotamento" type="string" relevant="(selected(/data/tipoesgotamento,'outros'))"/>
       <bind nodeset="/data/destinolixo" type="select"/>
       <bind nodeset="/data/dadossocioeconomicos/beneficiossociais" type="select1"/>
       <bind nodeset="/data/tipobeneficio" type="select" relevant="(selected(/data/dadossocioeconomicos/beneficiossociais,'sim'))"/>
-      <bind nodeset="/data/outrobeneficio" type="string" relevant="(selected(/data/dadossocioeconomicos/tipobeneficio,'outros'))" jr:constraintMsg="jr:itext('/data/outrobeneficio:constraintMsg')"/>
+      <bind nodeset="/data/outrobeneficio" type="string" relevant="(selected(/data/tipobeneficio,'outros'))" jr:constraintMsg="jr:itext('/data/outrobeneficio:constraintMsg')"/>
       <bind nodeset="/data/outrosdadossocioeconomicos/ocupacao" type="select"/>
       <bind nodeset="/data/outrosdadossocioeconomicos/periodorenda" type="select1"/>
       <bind nodeset="/data/outrosdadossocioeconomicos/valorrenda" type="int"/>
@@ -2685,16 +2706,16 @@
       <bind nodeset="/data/artesanato/tipoartesanato" type="string" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'artesanato'))"/>
       <bind nodeset="/data/outraatividade" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'outraatividade'))"/>
       <bind nodeset="/data/outraatividade/outrotipo" type="string" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'outraatividade'))"/>
+      <bind nodeset="/data/agriculturafinalidade/qualagricultura" type="string"/>
       <bind nodeset="/data/agriculturafinalidade/finalidadeagricultura" type="select"/>
       <bind nodeset="/data/agriculturafinalidade/areavenda" type="int"/>
       <bind nodeset="/data/agriculturafinalidade/areaconsumo" type="int"/>
       <bind nodeset="/data/tiposirrigacao/tiposdeirrigacao" type="select"/>
-      <bind nodeset="/data/criacaoanimais" relevant="(selected(/data/criacaodeanimais,'sim'))"/>
-      <bind nodeset="/data/criacaoanimais/criacaodeanimais" type="select1" relevant="(selected(/data/criacaodeanimais,'sim'))"/>
-      <bind nodeset="/data/criacaoanimais/quaisanimais" type="string" relevant="(selected(/data/criacaodeanimais,'sim'))"/>
-      <bind nodeset="/data/criacaoanimais/finalidadeanimais" type="select" relevant="(selected(/data/criacaodeanimais,'sim')) and (selected(/data/criacaoanimais/criacaodeanimais,'sim'))"/>
-      <bind nodeset="/data/criacaoanimais/areavenda" type="int" relevant="(selected(/data/criacaodeanimais,'sim')) and (selected(/data/criacaoanimais/finalidadeanimais,'venda'))"/>
-      <bind nodeset="/data/criacaoanimais/areaconsumo" type="int" relevant="(selected(/data/criacaodeanimais,'sim')) and (selected(/data/criacaoanimais/finalidadeanimais,'consumo'))"/>
+      <bind nodeset="/data/criacaoanimais/criacaodeanimais" type="select1" />
+      <bind nodeset="/data/criacaoanimais/quaisanimais" type="string"/>
+      <bind nodeset="/data/criacaoanimais/finalidadeanimais" type="select"/>
+      <bind nodeset="/data/criacaoanimais/areavenda" type="int"/>
+      <bind nodeset="/data/criacaoanimais/areaconsumo" type="int"/>
       <bind nodeset="/data/daassistencia/assistencia" type="select1"/>
       <bind nodeset="/data/origemassistencia" type="select" relevant="(selected(/data/daassistencia/assistencia,'sim'))"/>
       <bind nodeset="/data/fotoassinatura" type="binary"/>
@@ -2859,6 +2880,13 @@
       <input ref="/data/responsavelunidadefamiliar/nis">
         <label ref="jr:itext('/data/responsavelunidadefamiliar/nis:label')"/>
       </input>
+      <input ref="/data/responsavelunidadefamiliar/inss">
+        <label ref="jr:itext('/data/responsavelunidadefamiliar/inss:label')"/>
+      </input>
+        <input ref="/data/responsavelunidadefamiliar/apelido">
+        <label ref="jr:itext('/data/responsavelunidadefamiliar/apelido:label')"/>
+      </input>
+
     </group>
     <group appearance="field-list">
       <label ref="jr:itext('/data/dadosconjuge:label')"/>
@@ -2979,7 +3007,7 @@
         <value>nao</value>
       </item>
     </select1>
-    <group appearance="field-list">
+    <group>
       <label ref="jr:itext('/data/dadosenergia:label')"/>
       <select ref="/data/dadosenergia/tiposenergia">
         <label ref="jr:itext('/data/dadosenergia/tiposenergia:label')"/>
@@ -3117,7 +3145,7 @@
       </item>
       <item>
         <label ref="jr:itext('/data/tipobeneficio:option5')"/>
-        <value>Outros</value>
+        <value>outros</value>
       </item>
     </select>
     <input ref="/data/outrobeneficio">
@@ -4036,6 +4064,9 @@
     </group>
     <group appearance="field-list">
       <label ref="jr:itext('/data/agriculturafinalidade:label')"/>
+      <input ref="/data/agriculturafinalidade/qualagricultura">
+        <label ref="jr:itext('/data/agriculturafinalidade/qualagricultura:label')"/>
+      </input>
       <select ref="/data/agriculturafinalidade/finalidadeagricultura">
         <label ref="jr:itext('/data/agriculturafinalidade/finalidadeagricultura:label')"/>
         <item>

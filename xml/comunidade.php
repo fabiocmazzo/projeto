@@ -86,8 +86,10 @@
           <outroesgotamento/>
           <educacao>
             <numeroescolas/>
-            <numeroalunos/>
           </educacao>
+          <educacaoalunos>
+            <numeroalunos/>
+          </educacaoalunos>
           <dimensaoeconomica>
             <fonterenda/>
           </dimensaoeconomica>
@@ -522,21 +524,23 @@
               Educação
             </value>
           </text>
-          <text id="/data/educacao/numeroescolas:label">
+          
+          <text id="/data/educacaoalunos:label">
+            <value>
+              Alunos por Escola (Digite o número de alunos por escola)
+            </value>
+          </text>
+           <text id="/data/educacao/numeroescolas:label">
             <value>
               Indique o número de escolas da comunidade.
             </value>
           </text>
-          <text id="/data/educacao/numeroalunos:label">
+          <text id="/data/educacaoalunos/numeroalunos:label">
             <value>
-              Indique o número de alunos em cada escola.
+              Indique o número de alunos (aparecerá <output value="/data/educacao/numeroescolas"/> para preencher)
             </value>
           </text>
-          <text id="/data/educacao/numeroalunos:hint">
-            <value>
-              Exemplo: Escola ABC: 100 alunos, Escola XYZ:50 alunos.
-            </value>
-          </text>
+          
           <text id="/data/dimensaoeconomica:label">
             <value>
               Dimensão Econômica
@@ -1027,14 +1031,14 @@
       <bind nodeset="/data/infraestrutura/aguaencanada" type="select1"/>
       <bind nodeset="/data/infraestrutura/esgotamentosanitario" type="select1"/>
       <bind nodeset="/data/tipoenergia" type="select" relevant="(selected(/data/infraestrutura/energia,&quot;sim&quot;) or selected(/data/infraestrutura/energia,&quot;parcialmente&quot;))"/>
-      <bind nodeset="/data/outrotipoenergia" type="string" relevant="(selected(/data/infraestrutura/tipoenergia,&quot;outro&quot;))"/>
+      <bind nodeset="/data/outrotipoenergia" type="string" relevant="(selected(/data/tipoenergia,&quot;outro&quot;))"/>
       <bind nodeset="/data/acessoagua" relevant="(selected(/data/infraestrutura/aguaencanada,&quot;parcialmente&quot;))"/>
       <bind nodeset="/data/acessoagua/casascomacesso" type="int" relevant="(selected(/data/infraestrutura/aguaencanada,&quot;parcialmente&quot;))"/>
       <bind nodeset="/data/acessoagua/casassemacesso" type="int" relevant="(selected(/data/infraestrutura/aguaencanada,&quot;parcialmente&quot;))"/>
       <bind nodeset="/data/tipoesgotamento" type="select1" relevant="(selected(/data/infraestrutura/esgotamentosanitario,&quot;sim&quot;))"/>
       <bind nodeset="/data/outroesgotamento" type="string" relevant="(selected(/data/tipoesgotamento,&quot;outro&quot;))"/>
       <bind nodeset="/data/educacao/numeroescolas" type="int"/>
-      <bind nodeset="/data/educacao/numeroalunos" type="string"/>
+      <bind nodeset="/data/educacaoalunos/numeroalunos" type="int"/>
       <bind nodeset="/data/dimensaoeconomica/fonterenda" type="select1"/>
       <bind nodeset="/data/outrarenda" type="string" relevant="(selected(/data/dimensaoeconomica/fonterenda,&quot;outra&quot;))"/>
       <bind nodeset="/data/atividadeagricola" relevant="(selected(/data/dimensaoeconomica/fonterenda,&quot;agricultura&quot;))"/>
@@ -1338,11 +1342,19 @@
       <input ref="/data/educacao/numeroescolas">
         <label ref="jr:itext('/data/educacao/numeroescolas:label')"/>
       </input>
-      <input ref="/data/educacao/numeroalunos">
-        <label ref="jr:itext('/data/educacao/numeroalunos:label')"/>
-        <hint ref="jr:itext('/data/educacao/numeroalunos:hint')"/>
-      </input>
     </group>
+    
+    <group appearance="field-list">
+      <label ref="jr:itext('/data/educacaoalunos:label')"/>
+      <repeat nodeset="/data/educacaoalunos" jr:count="/data/educacao/numeroescolas">
+      <input ref="/data/educacaoalunos/numeroalunos">
+        <label ref="jr:itext('/data/educacaoalunos/numeroalunos:label')"/>
+      </input>
+      </repeat>
+    </group>
+    
+    
+    
     <group appearance="field-list">
       <label ref="jr:itext('/data/dimensaoeconomica:label')"/>
       <select1 ref="/data/dimensaoeconomica/fonterenda">
