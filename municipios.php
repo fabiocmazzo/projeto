@@ -42,7 +42,7 @@
         
         <?php
         
-        $sql = 'select * from municipio';
+        $sql = 'select m.*, (select nmLote from lote where idLote = m.idLote) as nmLote from municipio m';
         $result = $db->query($sql);
 	   
         
@@ -58,6 +58,7 @@
                      
                         <th class="th_id">Código</th>
                         <th class="th_status">Nome</th>
+                        <th class="th_status">Lote</th>
                         <th class="th_date">UF</th> 
                         <th class="th_date">Código IBGE</th>               
                         <th class="th_chexbox"> </th>
@@ -71,6 +72,7 @@
                     <tr class="item">
                         <td class="subject"><a href="addMunicipio.php?id=<?=$row['idMunicipio']?>"><?=$row['idMunicipio']?></a></td>
                         <td><span class="published"><?=$row['nmMunicipio']?></span></td>
+                        <td><span class="published"><?=$row['nmLote']?></span></td>
                         <td><?=$row['UF']?></td>
                         <td><?=$row['cdIBGE']?></td>
                         <td class="action"><a href="#"><img onclick="deleteMunicipio(<?=$row['idMunicipio']?>);" src="images/del.png" alt="delete"></a></td>

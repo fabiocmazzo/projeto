@@ -7,7 +7,7 @@
       
     function deleteLote(p_id) {
    	     
-         if(confirm("Tem certeza que deseja apagar o Lote? Isso irá apagar todos os registros filhos. (SubLotes, etc)")) {
+         if(confirm("Tem certeza que deseja apagar o Lote? Isso irá apagar todos os registros filhos. (Municípios, etc)")) {
             var action = '/actions/deleteLote.php';
             var form_data = {
 			           id: p_id
@@ -42,7 +42,7 @@
         
         <?php
         
-        $sql = 'SELECT idLote, nmLote, (select nmComunidade from comunidade where idComunidade = lote.idComunidade) as nmComunidade FROM lote';
+        $sql = 'SELECT idLote, nmLote FROM lote';
         $result = $db->query($sql);
 	   
         
@@ -58,7 +58,6 @@
                      
                         <th class="th_id">Código</th>
                         <th class="th_status">Nome</th>
-                        <th class="th_date">Comunidade</th>               
                         <th class="th_chexbox"> </th>
                     </tr>
                 </thead>
@@ -70,7 +69,6 @@
                     <tr class="item">
                         <td class="subject"><a href="addLote.php?id=<?=$row['idLote']?>"><?=$row['idLote']?></a></td>
                         <td><span class="published"><?=$row['nmLote']?></span></td>
-                        <td><?=$row['nmComunidade']?></td>
                         <td class="action"><a href="#"><img onclick="deleteLote(<?=$row['idLote']?>);" src="images/del.png" alt="delete"></a></td>
                     </tr>
                     

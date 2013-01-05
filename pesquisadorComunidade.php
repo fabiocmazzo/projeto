@@ -98,8 +98,8 @@
                                                             municipio
                                                         where
                                                             idMunicipio = c.idMunicipio) as nmMunicipio,
-                                                      case when (select count(*) from pesquisador_sublote where idComunidade = c.idComunidade
-							                     and idLote is null and idSubLote is null and idPesquisador = '. $idPesquisador . ') > 0 then "selected" end as selecionado
+                                                      case when (select count(*) from pesquisador_comunidade where idComunidade = c.idComunidade
+							                                 and idPesquisador = '. $idPesquisador . ') > 0 then "selected" end as selecionado
                                                 from
                                                     comunidade c
                                                 where

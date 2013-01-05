@@ -10,8 +10,7 @@
                       	var action = '/actions/atualizarLote.php';
                         var form_data = {
 			              idLote: $("#idLote").val(),
-			              nmLote: $("#nmLote").val(),
-                          idComunidade: $("#idComunidade").val()
+			              nmLote: $("#nmLote").val()
 			             }; 
                          
                        $.ajax({
@@ -79,23 +78,6 @@
                         </div>
                  </div>
               
-                 
-                 <div class="elem">
-                        <label>Comunidade:</label>
-                        <div class="indent">
-                         <select id="idComunidade" name="idComunidade" class="chzn-select medium-select select"> 
-                           <?php
-                               $sqlComunidade = 'select * from comunidade';;
-                               $resultComunidade = $db->query($sqlComunidade);
-                               
-                               while($rowC = $resultComunidade->fetch_assoc()) { ?>
-                                <option value="<?=$rowC['idComunidade']?>"<?php $rowC['idComunidade'] == $row['idComunidade'] ? ' selected ' : ''; ?>><?=$rowC['nmComunidade']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
-                               <?php } ?>
-                        </select>   
-                        </div>
-                 </div>
-
-                
             	 <div class="elem">
                         
                         <div class="indent">

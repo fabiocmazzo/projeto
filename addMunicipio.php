@@ -13,7 +13,8 @@
 			              idMunicipio: $("#idMunicipio").val(),
 			              nmMunicipio: $("#nmMunicipio").val(),
                           UF:          $("#UF").val(),
-                          cdIBGE:      $("#cdIBGE").val()
+                          cdIBGE:      $("#cdIBGE").val(),
+                          idLote:      $("#idLote").val()
 			             }; 
                          
                        $.ajax({
@@ -22,7 +23,6 @@
 			             data: form_data,
 			             success: function(response)
 			             {
-				            
                              alert("Gravado com sucesso");
 				             window.location = "municipios.php";
 				                               
@@ -80,6 +80,21 @@
                             <input type="text" id="nmMunicipio" name="nmMunicipio" maxlength="100" value="<?=$row['nmMunicipio']?>" class="medium validate[required] text-input"> 
                         </div>
                  </div>
+              <div class="elem">
+                        <label>Lote:</label>
+                        <div class="indent">
+                         <select id="idLote" name="idLote" class="chzn-select medium-select select"> 
+                           <?php
+                               $sqlLote = 'select idLote, nmLote from lote';
+                               $resultLote = $db->query($sqlLote);
+                           
+                               while($rowL = $resultLote->fetch_assoc()) { ?>
+                                <option value="<?=$rowL['idLote']?>"<?php $rowL['idLote'] == $row['idLote'] ? ' selected ' : ''; ?>><?=$rowL['nmLote']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                               <?php } ?>
+                        </select>   
+                        </div>
+                 </div>
+
                <div class="elem">
                         <label>Estado:</label>
                         <div class="indent">

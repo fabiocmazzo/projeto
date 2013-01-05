@@ -26,6 +26,8 @@
             <instanceID/>
           </meta>
           <responsavel>
+              <datapesquisa>
+             </datapesquisa>
              <tipopesquisa>
               acaosocial
              </tipopesquisa>
@@ -154,6 +156,7 @@
       <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
       <bind nodeset="/data/responsavel/nomeresponsavel" type="string" readonly="true()"/>
       <bind nodeset="/data/responsavel/cpf" type="string" readonly="true()"/>
+      <bind nodeset="/data/responsavel/datapesquisa" type="date" jr:preload="date" jr:preloadParams="today"/>
       <bind nodeset="/data/acaosocial/nomeacao" type="string"/>
       <bind nodeset="/data/acaosocial/dataacao" type="date"/>
       <bind nodeset="/data/acaosocial/localacao" type="string"/>

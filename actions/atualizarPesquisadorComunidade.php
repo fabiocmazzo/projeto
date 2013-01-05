@@ -6,11 +6,11 @@
    
    if(!empty($idPesquisador)) {
   
-     $sql = 'delete from pesquisador_sublote where idPesquisador = ' . $idPesquisador . ' and idLote is null and idSubLote is null';
+     $sql = 'delete from pesquisador_comunidade where idPesquisador = ' . $idPesquisador;
      $db->query($sql); 
      
      foreach($pesquisadorComunidades as $comunidade) {
-        $sql = 'insert into pesquisador_sublote(idPesquisador, idComunidade) values (' .$idPesquisador . ',' . $comunidade . ')';
+        $sql = 'insert into pesquisador_comunidade(idPesquisador, idComunidade) values (' .$idPesquisador . ',' . $comunidade . ')';
         $db->query($sql);
         
     }

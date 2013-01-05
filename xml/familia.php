@@ -3,8 +3,6 @@
     require_once '../includes/configxml.php';
     
     $idPesquisador = $_REQUEST['idPesquisador'];
-    $idLote = $_REQUEST['idLote'];
-    $idSubLote = $_REQUEST['idSubLote'];
     $idComunidade = $_REQUEST['idComunidade'];
     
     if($idPesquisador != "") {
@@ -13,21 +11,11 @@
                 $row = $result->fetch_assoc();
     }
     
-     if($idLote != "") {
-                $sqlLote = 'select * from lote where idLote = ' . $idLote;
-                $resultLote = $db->query($sqlLote);
-                $rowL = $resultLote->fetch_assoc();
-    }
-    
-     if($idSubLote != "") {
-                $sqlSubLote = 'select * from subLote where idSubLote = ' . $idSubLote;
-                $resultSubLote = $db->query($sqlSubLote);
-                $rowS = $resultSubLote->fetch_assoc();
-    }
-    
+ 
      if($idComunidade != "") {
-                $sqlComunidade = 'select nmComunidade, nmMunicipio, UF, cdIBGE from comunidade c, municipio m
-                                  where c.idMunicipio = m.idMunicipio and c.idComunidade = ' . $idComunidade;
+                $sqlComunidade = 'select nmComunidade, nmMunicipio, UF, cdIBGE, (select nmLote from lote where idLote = m.idLote) as nmLote
+                                    from comunidade c, municipio m
+                                   where c.idMunicipio = m.idMunicipio and c.idComunidade = ' . $idComunidade;
                 $resultComunidade = $db->query($sqlComunidade);
                 $rowC = $resultComunidade->fetch_assoc();
     }
@@ -35,7 +23,7 @@
  ?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
   <h:head>
-    <h:title>Cadastro Familia - <?=$rowC['nmComunidade']?> <?=$rowC['nmLote']?> <?=$rowC['nmSubLote']?></h:title>
+    <h:title>Cadastro Familia - <?=$rowC['nmComunidade']?></h:title>
     <model>
       <instance>
         <data id="build_Cadastro-Familia_1357260891">
@@ -43,6 +31,8 @@
             <instanceID/>
           </meta>
           <responsavel>
+             <datapesquisa>
+             </datapesquisa>
            <tipopesquisa>
                familia
            </tipopesquisa>
@@ -60,6 +50,9 @@
             <uf>
               <?=$rowC['UF']?>
             </uf>
+            <lote>
+              <?=$rowC['nmLote']?>
+            </lote>
             <nomemunicipio>
               <?=$rowC['nmMunicipio']?>
             </nomemunicipio>
@@ -69,12 +62,6 @@
             <comunidade>
               <?=$rowC['nmComunidade']?>
             </comunidade>
-            <lote>
-              <?=$rowL['nmLote']?>
-            </lote>
-            <sublote>
-              <?=$rowS['nmSubLote']?>
-            </sublote>
           </principal>
           <dadosendereco>
             <endereco/>
@@ -371,11 +358,6 @@
           <text id="/data/principal/lote:label">
             <value>
               Lote
-            </value>
-          </text>
-          <text id="/data/principal/sublote:label">
-            <value>
-              Sublote
             </value>
           </text>
           <text id="/data/dadosendereco:label">
@@ -2550,12 +2532,12 @@
       <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
       <bind nodeset="/data/responsavel/nomeresponsavel" type="string" readonly="true()"/>
       <bind nodeset="/data/responsavel/cpf" type="string" readonly="true()"/>
+      <bind nodeset="/data/responsavel/datapesquisa" type="date" jr:preload="date" jr:preloadParams="today"/>
       <bind nodeset="/data/principal/uf" type="string" readonly="true()" constraint="(regex(., &quot;^.{2,2}$&quot;))" jr:constraintMsg="Response length must be between 2 and 2"/>
       <bind nodeset="/data/principal/nomemunicipio" type="string" readonly="true()"/>
       <bind nodeset="/data/principal/codigoibge" type="int" readonly="true()"/>
       <bind nodeset="/data/principal/comunidade" type="string" readonly="true()"/>
       <bind nodeset="/data/principal/lote" type="string" readonly="true()"/>
-      <bind nodeset="/data/principal/sublote" type="string" readonly="true()"/>
       <bind nodeset="/data/dadosendereco/endereco" type="string"/>
       <bind nodeset="/data/dadosendereco/bairro" type="string"/>
       <bind nodeset="/data/dadosendereco/complemento" type="string"/>
@@ -2750,9 +2732,6 @@
       </input>
       <input ref="/data/principal/lote">
         <label ref="jr:itext('/data/principal/lote:label')"/>
-      </input>
-      <input ref="/data/principal/sublote">
-        <label ref="jr:itext('/data/principal/sublote:label')"/>
       </input>
     </group>
     <group appearance="field-list">

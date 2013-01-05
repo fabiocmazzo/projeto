@@ -5,7 +5,15 @@
    <div class="sidebar">
    <span class="categories">Cadastros</span>
    <ul class="menu">
-		<li <?php if($pagina == 'municipios' || $pagina == 'addMunicipio') {?>class="expand"<?php } ?>>
+	
+       <li <?php if($pagina == 'lotes' || $pagina == 'addLote') {?>class="expand"<?php } ?>>
+			<a href="#"><span class="files icon">Lote</span><span class="num">2</span></a>
+			<ul class="acitem">
+				<li><a href="/lotes.php"><span class="invoice icon">Listar</span></a></li>
+				<li><a href="/addLote.php"><span class="w-editor icon">Adicionar</span></a></li>
+            </ul>
+		</li>
+    	<li <?php if($pagina == 'municipios' || $pagina == 'addMunicipio') {?>class="expand"<?php } ?>>
 			<a href="#"><span class="files icon">Município</span><span class="num">2</span></a>
 			<ul class="acitem">
 				<li><a href="/municipios.php"><span class="invoice icon">Listar</span></a></li>
@@ -17,20 +25,6 @@
 			<ul class="acitem">
 				<li><a href="/comunidades.php"><span class="invoice icon">Listar</span></a></li>
 				<li><a href="/addComunidade.php"><span class="w-editor icon">Adicionar</span></a></li>
-            </ul>
-		</li>
-		<li <?php if($pagina == 'lotes' || $pagina == 'addLote') {?>class="expand"<?php } ?>>
-			<a href="#"><span class="files icon">Lote</span><span class="num">2</span></a>
-			<ul class="acitem">
-				<li><a href="/lotes.php"><span class="invoice icon">Listar</span></a></li>
-				<li><a href="/addLote.php"><span class="w-editor icon">Adicionar</span></a></li>
-            </ul>
-		</li>
-		<li <?php if($pagina == 'subLotes' || $pagina == 'addSubLote') {?>class="expand"<?php } ?>>
-			<a href="#"><span class="files icon">SubLote</span><span class="num">2</span></a>
-			<ul class="acitem">
-				<li><a href="/subLotes.php"><span class="invoice icon">Listar</span></a></li>
-				<li><a href="/addSubLote.php"><span class="w-editor icon">Adicionar</span></a></li>
             </ul>
 		</li>
   		<li <?php if(in_array($pagina,array('coordenadores','addCoordenador','coordenadorComunidade','coordenadorMunicipio'))) {?>class="expand"<?php } ?>>
@@ -48,8 +42,6 @@
 				<li><a href="/pesquisadores.php"><span class="invoice icon">Listar</span></a></li>
 				<li><a href="/addPesquisador.php"><span class="w-editor icon">Adicionar</span></a></li>
                 <li><a href="/pesquisadorComunidade.php"><span class="forms icon">Associar Comunidades</span></a></li>
-                <li><a href="/pesquisadorLote.php"><span class="forms icon">Associar Lotes</span></a></li>
-                <li><a href="/pesquisadorSubLote.php"><span class="forms icon">Associar SubLotes</span></a></li>
             </ul>
 		</li>  
        <?php if($_SESSION['isAdmin'] == 'S') { ?>

@@ -3,12 +3,12 @@
    
    $idLote =  $_REQUEST['idLote'];
    $nmLote =  $_REQUEST['nmLote'];   
-   $idComunidade =  $_REQUEST['idComunidade'];      
+      
    
    if(empty($idLote)) {
-        $sql = 'insert into lote(nmLote, idComunidade) values ("' .$nmLote . '",' .$idComunidade . ')';
+        $sql = 'insert into lote(nmLote) values ("' .$nmLote . '")';
     } else {
-        $sql =  'update lote set nmLote = "' . $nmLote . '", idComunidade = ' . $idComunidade . ' where idLote = ' . $idLote; 
+        $sql =  'update lote set nmLote = "' . $nmLote . '" where idLote = ' . $idLote; 
     } 
    
   
