@@ -31,6 +31,11 @@
             <instanceID/>
           </meta>
           <responsavel>
+             <datapesquisa>
+             </datapesquisa>
+             <tipopesquisa>
+              comunidade
+             </tipopesquisa>
              <idresponsavel>
                <?=$row['idPesquisador']?>
              </idresponsavel>
@@ -45,7 +50,7 @@
             <estado><?=$rowC['UF']?></estado>
             <municipio><?=$rowC['nmMunicipio']?></municipio>
             <codigoibge><?=$rowC['cdIBGE']?></codigoibge>
-            <comunidade><?=$row['nmComunidade']?></comunidade>
+            <comunidade><?=$rowC['nmComunidade']?></comunidade>
             <distanciasede/>
           </perfilcomunidade>
           <coordenada>
@@ -179,7 +184,7 @@
           </text>
           <text id="/data/perfilcomunidade/distanciasede:label">
             <value>
-              Distância entre a Comunidade e a Sede do Município
+              Distância entre a Comunidade e a Sede do Município (em Km)
             </value>
           </text>
           <text id="/data/coordenada:label">
@@ -997,20 +1002,16 @@
               Tire uma foto da assinatura.
             </value>
           </text>
-          <text id="/data/pesquisa:label">
-            <value>
-              Fim da Pesquisa
-            </value>
-          </text>
         </translation>
       </itext>
       <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
       <bind nodeset="/data/responsavel/nomeresponsavel" type="string" readonly="true()"/>
       <bind nodeset="/data/responsavel/cpf" type="string" readonly="true()"/>
-      <bind nodeset="/data/perfilcomunidade/estado" type="string" constraint="(regex(., &quot;^.{2,2}$&quot;))" jr:constraintMsg="Response length must be between 2 and 2"/>
-      <bind nodeset="/data/perfilcomunidade/municipio" type="string"/>
-      <bind nodeset="/data/perfilcomunidade/codigoibge" type="int"/>
-      <bind nodeset="/data/perfilcomunidade/comunidade" type="string"/>
+      <bind nodeset="/data/responsavel/datapesquisa" type="date" jr:preload="date" jr:preloadParams="today"/>
+      <bind nodeset="/data/perfilcomunidade/estado" type="string" readonly="true()"/>
+      <bind nodeset="/data/perfilcomunidade/municipio" type="string" readonly="true()"/>
+      <bind nodeset="/data/perfilcomunidade/codigoibge" type="int" readonly="true()"/>
+      <bind nodeset="/data/perfilcomunidade/comunidade" type="string" readonly="true()"/>
       <bind nodeset="/data/perfilcomunidade/distanciasede" type="int"/>
       <bind nodeset="/data/coordenada/coordenadageografica" type="geopoint"/>
       <bind nodeset="/data/informacoesgerais/classificacao" type="select1"/>
@@ -1025,13 +1026,13 @@
       <bind nodeset="/data/infraestrutura/energia" type="select1"/>
       <bind nodeset="/data/infraestrutura/aguaencanada" type="select1"/>
       <bind nodeset="/data/infraestrutura/esgotamentosanitario" type="select1"/>
-      <bind nodeset="/data/tipoenergia" type="select" relevant="(selected(/data/infraestrutura/energia,&quot;sim&quot;))"/>
+      <bind nodeset="/data/tipoenergia" type="select" relevant="(selected(/data/infraestrutura/energia,&quot;sim&quot;) or selected(/data/infraestrutura/energia,&quot;parcialmente&quot;))"/>
       <bind nodeset="/data/outrotipoenergia" type="string" relevant="(selected(/data/infraestrutura/tipoenergia,&quot;outro&quot;))"/>
       <bind nodeset="/data/acessoagua" relevant="(selected(/data/infraestrutura/aguaencanada,&quot;parcialmente&quot;))"/>
       <bind nodeset="/data/acessoagua/casascomacesso" type="int" relevant="(selected(/data/infraestrutura/aguaencanada,&quot;parcialmente&quot;))"/>
       <bind nodeset="/data/acessoagua/casassemacesso" type="int" relevant="(selected(/data/infraestrutura/aguaencanada,&quot;parcialmente&quot;))"/>
       <bind nodeset="/data/tipoesgotamento" type="select1" relevant="(selected(/data/infraestrutura/esgotamentosanitario,&quot;sim&quot;))"/>
-      <bind nodeset="/data/outroesgotamento" type="string" relevant="(selected(/data/esgotamento,&quot;outro&quot;))"/>
+      <bind nodeset="/data/outroesgotamento" type="string" relevant="(selected(/data/tipoesgotamento,&quot;outro&quot;))"/>
       <bind nodeset="/data/educacao/numeroescolas" type="int"/>
       <bind nodeset="/data/educacao/numeroalunos" type="string"/>
       <bind nodeset="/data/dimensaoeconomica/fonterenda" type="select1"/>
@@ -1059,7 +1060,7 @@
       <bind nodeset="/data/organizacao" type="select" relevant="(selected(/data/associacao,&quot;sim&quot;))"/>
       <bind nodeset="/data/associacaocomunitaria" type="string" relevant="(selected(/data/organizacao,&quot;associacao&quot;))"/>
       <bind nodeset="/data/cooperativa" type="string" relevant="(selected(/data/organizacao,&quot;cooperativa&quot;))"/>
-      <bind nodeset="/data/movimentodemulheres" type="string" relevant="(selected(/data/organizacao,&quot;movimento&quot;))"/>
+      <bind nodeset="/data/movimentodemulheres" type="string" relevant="(selected(/data/organizacao,&quot;mulheres&quot;))"/>
       <bind nodeset="/data/pastoral" type="string" relevant="(selected(/data/organizacao,&quot;pastoral&quot;))"/>
       <bind nodeset="/data/jovens" type="string" relevant="(selected(/data/organizacao,&quot;jovens&quot;))"/>
       <bind nodeset="/data/apl" type="string" relevant="(selected(/data/organizacao,&quot;apl&quot;))"/>
@@ -1067,7 +1068,6 @@
       <bind nodeset="/data/conselhos" type="string" relevant="(selected(/data/organizacao,&quot;conselhos&quot;))"/>
       <bind nodeset="/data/outros" type="string" relevant="(selected(/data/organizacao,&quot;outros&quot;))"/>
       <bind nodeset="/data/assinatura" type="binary"/>
-      <bind nodeset="/data/pesquisa" type="string" readonly="true()"/>
     </model>
   </h:head>
   <h:body>
@@ -1373,7 +1373,7 @@
         </item>
         <item>
           <label ref="jr:itext('/data/dimensaoeconomica/fonterenda:option6')"/>
-          <value>Outra</value>
+          <value>outra</value>
         </item>
       </select1>
     </group>
@@ -1660,8 +1660,5 @@
     <upload ref="/data/assinatura" mediatype="image/*">
       <label ref="jr:itext('/data/assinatura:label')"/>
     </upload>
-    <input ref="/data/pesquisa">
-      <label ref="jr:itext('/data/pesquisa:label')"/>
-    </input>
   </h:body>
 </h:html>

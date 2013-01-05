@@ -43,9 +43,12 @@
             <instanceID/>
           </meta>
           <responsavel>
+           <tipopesquisa>
+               familia
+           </tipopesquisa>
            <idresponsavel>
                <?=$row['idPesquisador']?>
-             </idresponsavel>
+           </idresponsavel>
             <nomeresponsavel>
               <?=$row['nmPesquisador']?>
             </nomeresponsavel>
@@ -2523,11 +2526,6 @@
               Tire uma foto da assinatura do entrevistado.
             </value>
           </text>
-          <text id="/data/pesquisa:label">
-            <value>
-              Fim da Pesquisa - Salve na próxima tela
-            </value>
-          </text>
         </translation>
       </itext>
       <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
@@ -2700,8 +2698,7 @@
       <bind nodeset="/data/daassistencia/assistencia" type="select1"/>
       <bind nodeset="/data/origemassistencia" type="select" relevant="(selected(/data/daassistencia/assistencia,'sim'))"/>
       <bind nodeset="/data/fotoassinatura" type="binary"/>
-      <bind nodeset="/data/pesquisa" type="string" readonly="true()"/>
-    </model>
+     </model>
   </h:head>
   <h:body>
     <group appearance="field-list">
@@ -4153,8 +4150,5 @@
     <upload ref="/data/fotoassinatura" mediatype="image/*">
       <label ref="jr:itext('/data/fotoassinatura:label')"/>
     </upload>
-    <input ref="/data/pesquisa">
-      <label ref="jr:itext('/data/pesquisa:label')"/>
-    </input>
   </h:body>
 </h:html>

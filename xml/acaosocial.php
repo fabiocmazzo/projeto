@@ -26,7 +26,10 @@
             <instanceID/>
           </meta>
           <responsavel>
-            <idresponsavel>
+             <tipopesquisa>
+              acaosocial
+             </tipopesquisa>
+             <idresponsavel>
                <?=$row['idPesquisador']?>
              </idresponsavel>
             <nomeresponsavel>
@@ -146,15 +149,6 @@
             <value>
             </value>
           </text>
-          <text id="/data/pesquisa:label">
-            <value>
-              Fim da Pesquisa
-            </value>
-          </text>
-          <text id="/data/pesquisa:hint">
-            <value>
-            </value>
-          </text>
         </translation>
       </itext>
       <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
@@ -170,7 +164,6 @@
       <bind nodeset="/data/dadoslider/telefone" type="string"/>
       <bind nodeset="/data/dadoslider/email" type="string"/>
       <bind nodeset="/data/comentarios" type="string"/>
-      <bind nodeset="/data/pesquisa" type="string" readonly="true()"/>
     </model>
   </h:head>
   <h:body>
@@ -222,9 +215,5 @@
       <label ref="jr:itext('/data/comentarios:label')"/>
       <hint ref="jr:itext('/data/comentarios:hint')"/>
     </input>
-    <input ref="/data/pesquisa">
-      <label ref="jr:itext('/data/pesquisa:label')"/>
-      <hint ref="jr:itext('/data/pesquisa:hint')"/>
-    </input>
-  </h:body>
+ </h:body>
 </h:html>
