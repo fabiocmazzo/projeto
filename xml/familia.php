@@ -2538,24 +2538,24 @@
       <bind nodeset="/data/principal/codigoibge" type="int" readonly="true()"/>
       <bind nodeset="/data/principal/comunidade" type="string" readonly="true()"/>
       <bind nodeset="/data/principal/lote" type="string" readonly="true()"/>
-      <bind nodeset="/data/dadosendereco/endereco" type="string"/>
-      <bind nodeset="/data/dadosendereco/bairro" type="string"/>
+      <bind nodeset="/data/dadosendereco/endereco" required="true()" type="string"/>
+      <bind nodeset="/data/dadosendereco/bairro" required="true()" type="string"/>
       <bind nodeset="/data/dadosendereco/complemento" type="string"/>
-      <bind nodeset="/data/dadosendereco/cep" type="int"/>
-      <bind nodeset="/data/dadosendereco/referencia" type="string"/>
-      <bind nodeset="/data/dadosendereco/telefone" type="string"/>
-      <bind nodeset="/data/complementoprincipal/distanciasede" type="int"/>
-      <bind nodeset="/data/complementoprincipal/viasdeacesso" type="select"/>
-      <bind nodeset="/data/complementoprincipal/transitavelanotodo" type="select1"/>
-      <bind nodeset="/data/coordenadageografica" type="geopoint"/>
-      <bind nodeset="/data/quemeoentrevistado/entrevistadoeresponsavel" type="select1"/>
-      <bind nodeset="/data/responsavelunidadefamiliar/nomedoresponsavel" type="string"/>
-      <bind nodeset="/data/responsavelunidadefamiliar/sexoresponsavel" type="select1"/>
-      <bind nodeset="/data/responsavelunidadefamiliar/datanascimento" type="date"/>
-      <bind nodeset="/data/responsavelunidadefamiliar/cpfresponsavel" type="string"/>
-      <bind nodeset="/data/responsavelunidadefamiliar/rgresponsavel" type="string"/>
-      <bind nodeset="/data/responsavelunidadefamiliar/Orgao" type="string"/>
-      <bind nodeset="/data/responsavelunidadefamiliar/nis" type="string"/>
+      <bind nodeset="/data/dadosendereco/cep" required="true()" type="int"/>
+      <bind nodeset="/data/dadosendereco/referencia" required="true()" type="string"/>
+      <bind nodeset="/data/dadosendereco/telefone"  required="true()" type="string"/>
+      <bind nodeset="/data/complementoprincipal/distanciasede" required="true()" type="int"/>
+      <bind nodeset="/data/complementoprincipal/viasdeacesso" required="true()" type="select"/>
+      <bind nodeset="/data/complementoprincipal/transitavelanotodo" required="true()" type="select1"/>
+      <bind nodeset="/data/coordenadageografica" required="true()" type="geopoint"/>
+      <bind nodeset="/data/quemeoentrevistado/entrevistadoeresponsavel" required="true()" type="select1"/>
+      <bind nodeset="/data/responsavelunidadefamiliar/nomedoresponsavel" required="true()" type="string"/>
+      <bind nodeset="/data/responsavelunidadefamiliar/sexoresponsavel" required="true()" type="select1"/>
+      <bind nodeset="/data/responsavelunidadefamiliar/datanascimento"  required="true()" type="date"/>
+      <bind nodeset="/data/responsavelunidadefamiliar/cpfresponsavel" required="true()" type="string"/>
+      <bind nodeset="/data/responsavelunidadefamiliar/rgresponsavel" required="true()" type="string"/>
+      <bind nodeset="/data/responsavelunidadefamiliar/Orgao" required="true()" type="string"/>
+      <bind nodeset="/data/responsavelunidadefamiliar/nis" required="true()" type="string"/>
       <bind nodeset="/data/responsavelunidadefamiliar/inss" type="string"/>
       <bind nodeset="/data/responsavelunidadefamiliar/apelido" type="string"/>
       <bind nodeset="/data/dadosconjuge/nomeconjuge" type="string"/>
@@ -2567,116 +2567,116 @@
       <bind nodeset="/data/dadosdoentrevistado/nomeentrevistado" type="string" relevant="(selected(/data/quemeoentrevistado/entrevistadoeresponsavel,'nao'))"/>
       <bind nodeset="/data/dadosdoentrevistado/cpfentrevistado" type="string" relevant="(selected(/data/quemeoentrevistado/entrevistadoeresponsavel,'nao'))"/>
       <bind nodeset="/data/dadosdoentrevistado/rgentrevistado" type="string" relevant="(selected(/data/quemeoentrevistado/entrevistadoeresponsavel,'nao'))"/>
-      <bind nodeset="/data/composicaogrupofamiliar/totalfilhos" type="int" constraint="(. &gt;= '0' and . &lt;= '20')" jr:constraintMsg="Value must be between 0 and 20"/>
-      <bind nodeset="/data/composicaogrupofamiliar/criancasate06anos" type="int" constraint="(. &gt;= '0' and . &lt;= '20')" jr:constraintMsg="Value must be between 0 and 20"/>
-      <bind nodeset="/data/composicaogrupofamiliar/criancasnaescola" type="int" constraint="(. &gt;= '0' and . &lt;= '20')" jr:constraintMsg="Value must be between 0 and 20"/>
-      <bind nodeset="/data/composicaogrupofamiliar/idosos" type="int" constraint="(. &gt;= '0' and . &lt;= '20')" jr:constraintMsg="Value must be between 0 and 20"/>
-      <bind nodeset="/data/composicaogrupofamiliar/deficiencia" type="int" constraint="(. &gt;= '0' and . &lt;= '20')" jr:constraintMsg="Value must be between 0 and 20"/>
-      <bind nodeset="/data/dadosresidencia/cobertura" type="select1"/>
-      <bind nodeset="/data/dadosresidencia/situacaocobertura" type="select1"/>
-      <bind nodeset="/data/dadosresidencia/cisterna" type="string"/>
-      <bind nodeset="/data/energia" type="select1"/>
-      <bind nodeset="/data/dadosenergia/tiposenergia" type="select" relevant="(selected(/data/energia,'sim'))"/>
-      <bind nodeset="/data/dadosenergia/tipoenergia" type="string" relevant="(selected(/data/dadosenergia/tiposenergia,'outros'))"/>
-      <bind nodeset="/data/esgoto/banheiro" type="select1"/>
-      <bind nodeset="/data/esgoto/esgotamentosanitario" type="select1"/>
-      <bind nodeset="/data/tipoesgotamento" type="select" relevant="(selected(/data/esgoto/esgotamentosanitario,'sim'))"/>
-      <bind nodeset="/data/outroesgotamento" type="string" relevant="(selected(/data/tipoesgotamento,'outros'))"/>
-      <bind nodeset="/data/destinolixo" type="select"/>
+      <bind nodeset="/data/composicaogrupofamiliar/totalfilhos" required="true()" type="int" constraint="(. &gt;= '0' and . &lt;= '20')" jr:constraintMsg="O valor deve estar entre  0 e 20"/>
+      <bind nodeset="/data/composicaogrupofamiliar/criancasate06anos" required="true()" type="int" constraint="(. &gt;= '0' and . &lt;= '20')" jr:constraintMsg="O valor deve estar entre 0 e 20"/>
+      <bind nodeset="/data/composicaogrupofamiliar/criancasnaescola" required="true()" type="int" constraint="(. &gt;= '0' and . &lt;= '20')" jr:constraintMsg="O valor deve estar entre 0 e 20"/>
+      <bind nodeset="/data/composicaogrupofamiliar/idosos" type="int" required="true()" constraint="(. &gt;= '0' and . &lt;= '20')" jr:constraintMsg="O valor deve estar entre 0 e 20"/>
+      <bind nodeset="/data/composicaogrupofamiliar/deficiencia" type="int" required="true()" constraint="(. &gt;= '0' and . &lt;= '20')" jr:constraintMsg="O valor deve estar entre 0 e 20"/>
+      <bind nodeset="/data/dadosresidencia/cobertura" required="true()" type="select1"/>
+      <bind nodeset="/data/dadosresidencia/situacaocobertura" required="true()" type="select1"/>
+      <bind nodeset="/data/dadosresidencia/cisterna" required="true()" type="string"/>
+      <bind nodeset="/data/energia" required="true()" type="select1"/>
+      <bind nodeset="/data/dadosenergia/tiposenergia" required="true()" type="select" relevant="(selected(/data/energia,'sim'))"/>
+      <bind nodeset="/data/dadosenergia/tipoenergia" required="true()" type="string" relevant="(selected(/data/dadosenergia/tiposenergia,'outros'))"/>
+      <bind nodeset="/data/esgoto/banheiro" required="true()" type="select1"/>
+      <bind nodeset="/data/esgoto/esgotamentosanitario"  required="true()" type="select1"/>
+      <bind nodeset="/data/tipoesgotamento" type="select" required="true()" relevant="(selected(/data/esgoto/esgotamentosanitario,'sim'))"/>
+      <bind nodeset="/data/outroesgotamento" type="string" required="true()" relevant="(selected(/data/tipoesgotamento,'outros'))"/>
+      <bind nodeset="/data/destinolixo" required="true()" type="select"/>
       <bind nodeset="/data/dadossocioeconomicos/beneficiossociais" type="select1"/>
-      <bind nodeset="/data/tipobeneficio" type="select" relevant="(selected(/data/dadossocioeconomicos/beneficiossociais,'sim'))"/>
-      <bind nodeset="/data/outrobeneficio" type="string" relevant="(selected(/data/tipobeneficio,'outros'))" jr:constraintMsg="jr:itext('/data/outrobeneficio:constraintMsg')"/>
-      <bind nodeset="/data/outrosdadossocioeconomicos/ocupacao" type="select"/>
-      <bind nodeset="/data/outrosdadossocioeconomicos/periodorenda" type="select1"/>
-      <bind nodeset="/data/outrosdadossocioeconomicos/valorrenda" type="int"/>
-      <bind nodeset="/data/outrosdadossocioeconomicos/totalpessoas" type="int" constraint="(. &gt;= '0' and . &lt;= '99')" jr:constraintMsg="Value must be between 0 and 99"/>
-      <bind nodeset="/data/acessoeusodaagua/acessoagua" type="select1"/>
-      <bind nodeset="/data/tiposdefonte" type="select" relevant="(selected(/data/acessoeusodaagua/acessoagua,'sim'))"/>
+      <bind nodeset="/data/tipobeneficio" type="select" required="true()" relevant="(selected(/data/dadossocioeconomicos/beneficiossociais,'sim'))"/>
+      <bind nodeset="/data/outrobeneficio" type="string" required="true()" relevant="(selected(/data/tipobeneficio,'outros'))" jr:constraintMsg="jr:itext('/data/outrobeneficio:constraintMsg')"/>
+      <bind nodeset="/data/outrosdadossocioeconomicos/ocupacao" required="true()" type="select"/>
+      <bind nodeset="/data/outrosdadossocioeconomicos/periodorenda" required="true()" type="select1"/>
+      <bind nodeset="/data/outrosdadossocioeconomicos/valorrenda" required="true()" type="int"/>
+      <bind nodeset="/data/outrosdadossocioeconomicos/totalpessoas" required="true()" type="int" constraint="(. &gt;= '0' and . &lt;= '99')" jr:constraintMsg="Value must be between 0 and 99"/>
+      <bind nodeset="/data/acessoeusodaagua/acessoagua" required="true()" type="select1"/>
+      <bind nodeset="/data/tiposdefonte" type="select" required="true()" relevant="(selected(/data/acessoeusodaagua/acessoagua,'sim'))"/>
       <bind nodeset="/data/poco" relevant="(selected(/data/tiposdefonte,'poco'))"/>
-      <bind nodeset="/data/poco/distanciapoco" type="int" relevant="(selected(/data/tiposdefonte,'poco'))"/>
+      <bind nodeset="/data/poco/distanciapoco" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'poco'))"/>
       <bind nodeset="/data/poco/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'poco'))"/>
-      <bind nodeset="/data/poco/utilizacaopoco" type="select" relevant="(selected(/data/tiposdefonte,'poco'))"/>
+      <bind nodeset="/data/poco/utilizacaopoco" required="true()" type="select" relevant="(selected(/data/tiposdefonte,'poco'))"/>
       <bind nodeset="/data/pocosubsuperficial" relevant="(selected(/data/tiposdefonte,'pocosubsuperficial'))"/>
-      <bind nodeset="/data/pocosubsuperficial/distanciapocosuperficial" type="int" relevant="(selected(/data/tiposdefonte,'pocosubsuperficial'))"/>
+      <bind nodeset="/data/pocosubsuperficial/distanciapocosuperficial" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'pocosubsuperficial'))"/>
       <bind nodeset="/data/pocosubsuperficial/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'pocosubsuperficial'))"/>
-      <bind nodeset="/data/pocosubsuperficial/utilizacaopocusuperficial" type="select" relevant="(selected(/data/tiposdefonte,'pocosubsuperficial'))"/>
+      <bind nodeset="/data/pocosubsuperficial/utilizacaopocusuperficial" required="true()" type="select" relevant="(selected(/data/tiposdefonte,'pocosubsuperficial'))"/>
       <bind nodeset="/data/corrego" relevant="(selected(/data/tiposdefonte,'corrego'))"/>
-      <bind nodeset="/data/corrego/distanciacorrego" type="int" relevant="(selected(/data/tiposdefonte,'corrego'))"/>
+      <bind nodeset="/data/corrego/distanciacorrego" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'corrego'))"/>
       <bind nodeset="/data/corrego/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'corrego'))"/>
-      <bind nodeset="/data/corrego/utilizacaocorrego" type="select" relevant="(selected(/data/tiposdefonte,'corrego'))"/>
+      <bind nodeset="/data/corrego/utilizacaocorrego" required="true()" type="select" relevant="(selected(/data/tiposdefonte,'corrego'))"/>
       <bind nodeset="/data/rioriacho" relevant="(selected(/data/tiposdefonte,'rioriacho'))"/>
-      <bind nodeset="/data/rioriacho/distanciario" type="int" relevant="(selected(/data/tiposdefonte,'rioriacho'))"/>
+      <bind nodeset="/data/rioriacho/distanciario" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'rioriacho'))"/>
       <bind nodeset="/data/rioriacho/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'rioriacho'))"/>
-      <bind nodeset="/data/rioriacho/utilizacaorio" type="select" relevant="(selected(/data/tiposdefonte,'rioriacho'))"/>
+      <bind nodeset="/data/rioriacho/utilizacaorio" required="true()" type="select" relevant="(selected(/data/tiposdefonte,'rioriacho'))"/>
       <bind nodeset="/data/tanques" relevant="(selected(/data/tiposdefonte,'tanques'))"/>
-      <bind nodeset="/data/tanques/distanciatanques" type="int" relevant="(selected(/data/tiposdefonte,'tanques'))"/>
+      <bind nodeset="/data/tanques/distanciatanques" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'tanques'))"/>
       <bind nodeset="/data/tanques/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'tanques'))"/>
-      <bind nodeset="/data/tanques/utilizacaotanques" type="select" relevant="(selected(/data/tiposdefonte,'tanques'))"/>
+      <bind nodeset="/data/tanques/utilizacaotanques" required="true()" type="select" relevant="(selected(/data/tiposdefonte,'tanques'))"/>
       <bind nodeset="/data/lagoa" relevant="(selected(/data/tiposdefonte,'lagoa'))"/>
-      <bind nodeset="/data/lagoa/distancialagoa" type="int" relevant="(selected(/data/tiposdefonte,'lagoa'))"/>
-      <bind nodeset="/data/lagoa/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'lagoa'))"/>
-      <bind nodeset="/data/lagoa/utilizacaolagoa" type="select" relevant="(selected(/data/tiposdefonte,'lagoa'))"/>
+      <bind nodeset="/data/lagoa/distancialagoa" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'lagoa'))"/>
+      <bind nodeset="/data/lagoa/medida" required="true()" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'lagoa'))"/>
+      <bind nodeset="/data/lagoa/utilizacaolagoa" required="true()" type="select" relevant="(selected(/data/tiposdefonte,'lagoa'))"/>
       <bind nodeset="/data/sistemaaducao" relevant="(selected(/data/tiposdefonte,'sistemaaducao'))"/>
-      <bind nodeset="/data/sistemaaducao/distanciasistemaaducao" type="int" relevant="(selected(/data/tiposdefonte,'sistemaaducao'))"/>
-      <bind nodeset="/data/sistemaaducao/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'sistemaaducao'))"/>
-      <bind nodeset="/data/sistemaaducao/utilizacaosistemadeaducao" type="select" relevant="(selected(/data/tiposdefonte,'sistemaaducao'))"/>
+      <bind nodeset="/data/sistemaaducao/distanciasistemaaducao" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'sistemaaducao'))"/>
+      <bind nodeset="/data/sistemaaducao/medida" type="select1" required="true()" required="true()" relevant="(selected(/data/tiposdefonte,'sistemaaducao'))"/>
+      <bind nodeset="/data/sistemaaducao/utilizacaosistemadeaducao" required="true()" type="select" relevant="(selected(/data/tiposdefonte,'sistemaaducao'))"/>
       <bind nodeset="/data/cisternaconsumohumano" relevant="(selected(/data/tiposdefonte,'cisternaconsumohumano'))"/>
-      <bind nodeset="/data/cisternaconsumohumano/distanciacicternaconsumo" type="int" relevant="(selected(/data/tiposdefonte,'cisternaconsumohumano'))"/>
+      <bind nodeset="/data/cisternaconsumohumano/distanciacicternaconsumo"  required="true()" type="int" relevant="(selected(/data/tiposdefonte,'cisternaconsumohumano'))"/>
       <bind nodeset="/data/cisternaconsumohumano/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'cisternaconsumohumano'))"/>
-      <bind nodeset="/data/cisternaconsumohumano/utilizacaocisternaconsumo" type="select" relevant="(selected(/data/tiposdefonte,'cisternaconsumohumano'))"/>
+      <bind nodeset="/data/cisternaconsumohumano/utilizacaocisternaconsumo" required="true()" type="select" relevant="(selected(/data/tiposdefonte,'cisternaconsumohumano'))"/>
       <bind nodeset="/data/cisternadeterceiros" relevant="(selected(/data/tiposdefonte,'cisternadeterceiros'))"/>
-      <bind nodeset="/data/cisternadeterceiros/distanciacisternadeterceiros" type="int" relevant="(selected(/data/tiposdefonte,'cisternadeterceiros'))"/>
-      <bind nodeset="/data/cisternadeterceiros/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'cisternadeterceiros'))"/>
-      <bind nodeset="/data/cisternadeterceiros/utilizacaocisternadeterceiros" type="select" relevant="(selected(/data/tiposdefonte,'cisternadeterceiros'))"/>
+      <bind nodeset="/data/cisternadeterceiros/distanciacisternadeterceiros" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'cisternadeterceiros'))"/>
+      <bind nodeset="/data/cisternadeterceiros/medida"  type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'cisternadeterceiros'))"/>
+      <bind nodeset="/data/cisternadeterceiros/utilizacaocisternadeterceiros" required="true()" type="select" relevant="(selected(/data/tiposdefonte,'cisternadeterceiros'))"/>
       <bind nodeset="/data/sistemacomunidade" relevant="(selected(/data/tiposdefonte,'sistemacomunidade'))"/>
-      <bind nodeset="/data/sistemacomunidade/distanciasistemacomunidade" type="int" relevant="(selected(/data/tiposdefonte,'sistemacomunidade'))"/>
+      <bind nodeset="/data/sistemacomunidade/distanciasistemacomunidade" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'sistemacomunidade'))"/>
       <bind nodeset="/data/sistemacomunidade/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'sistemacomunidade'))"/>
-      <bind nodeset="/data/sistemacomunidade/utilizacaosistemacomunidade" type="select" relevant="(selected(/data/tiposdefonte,'sistemacomunidade'))"/>
+      <bind nodeset="/data/sistemacomunidade/utilizacaosistemacomunidade" required="true()" type="select" relevant="(selected(/data/tiposdefonte,'sistemacomunidade'))"/>
       <bind nodeset="/data/sistemaoutracomunidade" relevant="(selected(/data/tiposdefonte,'sistemaoutracomunidade'))"/>
-      <bind nodeset="/data/sistemaoutracomunidade/distanciasistemaoutracomunidade" type="int" relevant="(selected(/data/tiposdefonte,'sistemaoutracomunidade'))"/>
+      <bind nodeset="/data/sistemaoutracomunidade/distanciasistemaoutracomunidade"  required="true()" type="int" relevant="(selected(/data/tiposdefonte,'sistemaoutracomunidade'))"/>
       <bind nodeset="/data/sistemaoutracomunidade/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'sistemaoutracomunidade'))"/>
-      <bind nodeset="/data/sistemaoutracomunidade/utilizacaosistemaoutracomunidade" type="select" relevant="(selected(/data/tiposdefonte,'sistemaoutracomunidade'))"/>
+      <bind nodeset="/data/sistemaoutracomunidade/utilizacaosistemaoutracomunidade" required="true()" type="select" relevant="(selected(/data/tiposdefonte,'sistemaoutracomunidade'))"/>
       <bind nodeset="/data/cisternaproducao" relevant="(selected(/data/tiposdefonte,'cisternaproducao'))"/>
-      <bind nodeset="/data/cisternaproducao/distanciacisternaproducao" type="int" relevant="(selected(/data/tiposdefonte,'cisternaproducao'))"/>
+      <bind nodeset="/data/cisternaproducao/distanciacisternaproducao" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'cisternaproducao'))"/>
       <bind nodeset="/data/cisternaproducao/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'cisternaproducao'))"/>
-      <bind nodeset="/data/cisternaproducao/utilizacaocisternaproducao" type="select" relevant="(selected(/data/tiposdefonte,'cisternaproducao'))"/>
+      <bind nodeset="/data/cisternaproducao/utilizacaocisternaproducao" required="true()"type="select" relevant="(selected(/data/tiposdefonte,'cisternaproducao'))"/>
       <bind nodeset="/data/cisternaoutracomunidade" relevant="(selected(/data/tiposdefonte,'cisternaoutracomunidade'))"/>
-      <bind nodeset="/data/cisternaoutracomunidade/distanciacisternaoutracomunidade" type="int" relevant="(selected(/data/tiposdefonte,'cisternaoutracomunidade'))"/>
+      <bind nodeset="/data/cisternaoutracomunidade/distanciacisternaoutracomunidade" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'cisternaoutracomunidade'))"/>
       <bind nodeset="/data/cisternaoutracomunidade/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'cisternaoutracomunidade'))"/>
-      <bind nodeset="/data/cisternaoutracomunidade/utilizacaocisternaoutracomunidade" type="select" relevant="(selected(/data/tiposdefonte,'cisternaoutracomunidade'))"/>
+      <bind nodeset="/data/cisternaoutracomunidade/utilizacaocisternaoutracomunidade" required="true()" type="select" relevant="(selected(/data/tiposdefonte,'cisternaoutracomunidade'))"/>
       <bind nodeset="/data/sistemacoletivo" relevant="(selected(/data/tiposdefonte,'sistemacoletivo'))"/>
-      <bind nodeset="/data/sistemacoletivo/distanciasistemacoletivo" type="int" relevant="(selected(/data/tiposdefonte,'sistemacoletivo'))"/>
+      <bind nodeset="/data/sistemacoletivo/distanciasistemacoletivo" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'sistemacoletivo'))"/>
       <bind nodeset="/data/sistemacoletivo/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'sistemacoletivo'))"/>
-      <bind nodeset="/data/sistemacoletivo/utilizacaosistemacoletivo" type="select" relevant="(selected(/data/tiposdefonte,'sistemacoletivo'))"/>
+      <bind nodeset="/data/sistemacoletivo/utilizacaosistemacoletivo"  required="true()" type="select" relevant="(selected(/data/tiposdefonte,'sistemacoletivo'))"/>
       <bind nodeset="/data/barreiro" relevant="(selected(/data/tiposdefonte,'barreiro'))"/>
-      <bind nodeset="/data/barreiro/distanciabarreiro" type="int" relevant="(selected(/data/tiposdefonte,'barreiro'))"/>
+      <bind nodeset="/data/barreiro/distanciabarreiro" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'barreiro'))"/>
       <bind nodeset="/data/barreiro/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'barreiro'))"/>
-      <bind nodeset="/data/barreiro/utilizacaobarreiro" type="select" relevant="(selected(/data/tiposdefonte,'barreiro'))"/>
+      <bind nodeset="/data/barreiro/utilizacaobarreiro" required="true()" type="select" relevant="(selected(/data/tiposdefonte,'barreiro'))"/>
       <bind nodeset="/data/nascentes" relevant="(selected(/data/tiposdefonte,'nascentes'))"/>
-      <bind nodeset="/data/nascentes/distancianascentes" type="int" relevant="(selected(/data/tiposdefonte,'nascentes'))"/>
+      <bind nodeset="/data/nascentes/distancianascentes" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'nascentes'))"/>
       <bind nodeset="/data/nascentes/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'nascentes'))"/>
-      <bind nodeset="/data/nascentes/utilizacaonascentes" type="select" relevant="(selected(/data/tiposdefonte,'nascentes'))"/>
+      <bind nodeset="/data/nascentes/utilizacaonascentes" required="true()" type="select" relevant="(selected(/data/tiposdefonte,'nascentes'))"/>
       <bind nodeset="/data/acudes" relevant="(selected(/data/tiposdefonte,'acudes'))"/>
-      <bind nodeset="/data/acudes/distanciaacudes" type="int" relevant="(selected(/data/tiposdefonte,'acudes'))"/>
+      <bind nodeset="/data/acudes/distanciaacudes" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'acudes'))"/>
       <bind nodeset="/data/acudes/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'acudes'))"/>
-      <bind nodeset="/data/acudes/utilizacaoacudes" type="select" relevant="(selected(/data/tiposdefonte,'acudes'))"/>
+      <bind nodeset="/data/acudes/utilizacaoacudes"  required="true()"type="select" relevant="(selected(/data/tiposdefonte,'acudes'))"/>
       <bind nodeset="/data/kitsirrigacao" relevant="(selected(/data/tiposdefonte,'kitsirrigacao'))"/>
-      <bind nodeset="/data/kitsirrigacao/distanciakits" type="int" relevant="(selected(/data/tiposdefonte,'kitsirrigacao'))"/>
+      <bind nodeset="/data/kitsirrigacao/distanciakits" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'kitsirrigacao'))"/>
       <bind nodeset="/data/kitsirrigacao/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'kitsirrigacao'))"/>
       <bind nodeset="/data/kitsirrigacao/utilizacaokits" type="select" relevant="(selected(/data/tiposdefonte,'kitsirrigacao'))"/>
       <bind nodeset="/data/carropipa" relevant="(selected(/data/tiposdefonte,'carropipa'))"/>
-      <bind nodeset="/data/carropipa/distanciacarropipa" type="int" relevant="(selected(/data/tiposdefonte,'carropipa'))"/>
+      <bind nodeset="/data/carropipa/distanciacarropipa" required="true()" type="int" relevant="(selected(/data/tiposdefonte,'carropipa'))"/>
       <bind nodeset="/data/carropipa/medida" type="select1" required="true()" relevant="(selected(/data/tiposdefonte,'carropipa'))"/>
-      <bind nodeset="/data/carropipa/utilizacaocarropipa" type="select" relevant="(selected(/data/tiposdefonte,'carropipa'))"/>
-      <bind nodeset="/data/tratamentoagua/aguatratada" type="select1"/>
-      <bind nodeset="/data/formatratamento" type="select" relevant="(selected(/data/tratamentoagua/aguatratada,'sim'))"/>
-      <bind nodeset="/data/dadosprodutivos/dadospropriedade" type="select1"/>
-      <bind nodeset="/data/descrevaoutros" type="string" relevant="(selected(/data/dadosprodutivos/dadospropriedade,'outros'))"/>
+      <bind nodeset="/data/carropipa/utilizacaocarropipa" required="true()" type="select" relevant="(selected(/data/tiposdefonte,'carropipa'))"/>
+      <bind nodeset="/data/tratamentoagua/aguatratada" required="true()" type="select1"/>
+      <bind nodeset="/data/formatratamento" type="select" required="true()" relevant="(selected(/data/tratamentoagua/aguatratada,'sim'))"/>
+      <bind nodeset="/data/dadosprodutivos/dadospropriedade" required="true()" type="select1"/>
+      <bind nodeset="/data/descrevaoutros" type="string" required="true()" relevant="(selected(/data/dadosprodutivos/dadospropriedade,'outros'))"/>
       <bind nodeset="/data/maodeobra/tipomaodeobra" type="select"/>
       <bind nodeset="/data/maodeobra/pessoasfamilia" type="int" constraint="(. &gt;= '0' and . &lt;= '999')" jr:constraintMsg="Value must be between 0 and 999"/>
-      <bind nodeset="/data/maodeobra/pessoascontratadas" type="int" constraint="(. &gt;= '0' and . &lt;= '9999')" jr:constraintMsg="Value must be between 0 and 9999"/>
-      <bind nodeset="/data/area/areatotal" type="int"/>
-      <bind nodeset="/data/area/areaproducao" type="int"/>
+      <bind nodeset="/data/maodeobra/pessoascontratadas" required="true()" type="int" constraint="(. &gt;= '0' and . &lt;= '9999')" jr:constraintMsg="Value must be between 0 and 9999"/>
+      <bind nodeset="/data/area/areatotal" required="true()" type="int"/>
+      <bind nodeset="/data/area/areaproducao" required="true()" type="int"/>
       <bind nodeset="/data/tipoatividade/assinaletipoatividade" type="select"/>
       <bind nodeset="/data/frutas" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'frutas'))"/>
       <bind nodeset="/data/frutas/tiposdefruta" type="string" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'frutas'))"/>
@@ -2687,19 +2687,19 @@
       <bind nodeset="/data/artesanato" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'artesanato'))"/>
       <bind nodeset="/data/artesanato/tipoartesanato" type="string" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'artesanato'))"/>
       <bind nodeset="/data/outraatividade" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'outraatividade'))"/>
-      <bind nodeset="/data/outraatividade/outrotipo" type="string" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'outraatividade'))"/>
-      <bind nodeset="/data/agriculturafinalidade/qualagricultura" type="string"/>
-      <bind nodeset="/data/agriculturafinalidade/finalidadeagricultura" type="select"/>
-      <bind nodeset="/data/agriculturafinalidade/areavenda" type="int"/>
-      <bind nodeset="/data/agriculturafinalidade/areaconsumo" type="int"/>
-      <bind nodeset="/data/tiposirrigacao/tiposdeirrigacao" type="select"/>
-      <bind nodeset="/data/criacaoanimais/criacaodeanimais" type="select1" />
-      <bind nodeset="/data/criacaoanimais/quaisanimais" type="string"/>
-      <bind nodeset="/data/criacaoanimais/finalidadeanimais" type="select"/>
-      <bind nodeset="/data/criacaoanimais/areavenda" type="int"/>
-      <bind nodeset="/data/criacaoanimais/areaconsumo" type="int"/>
-      <bind nodeset="/data/daassistencia/assistencia" type="select1"/>
-      <bind nodeset="/data/origemassistencia" type="select" relevant="(selected(/data/daassistencia/assistencia,'sim'))"/>
+      <bind nodeset="/data/outraatividade/outrotipo" required="true()" type="string" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'outraatividade'))"/>
+      <bind nodeset="/data/agriculturafinalidade/qualagricultura" required="true()" type="string"/>
+      <bind nodeset="/data/agriculturafinalidade/finalidadeagricultura" required="true()" type="select"/>
+      <bind nodeset="/data/agriculturafinalidade/areavenda" required="true()" type="int"/>
+      <bind nodeset="/data/agriculturafinalidade/areaconsumo" required="true()" type="int"/>
+      <bind nodeset="/data/tiposirrigacao/tiposdeirrigacao" required="true()" type="select"/>
+      <bind nodeset="/data/criacaoanimais/criacaodeanimais" required="true()" type="select1" />
+      <bind nodeset="/data/criacaoanimais/quaisanimais" required="true()" type="string"/>
+      <bind nodeset="/data/criacaoanimais/finalidadeanimais" required="true()" type="select"/>
+      <bind nodeset="/data/criacaoanimais/areavenda" required="true()" type="int"/>
+      <bind nodeset="/data/criacaoanimais/areaconsumo" required="true()" type="int"/>
+      <bind nodeset="/data/daassistencia/assistencia"  required="true()" type="select1"/>
+      <bind nodeset="/data/origemassistencia" required="true()" type="select" relevant="(selected(/data/daassistencia/assistencia,'sim'))"/>
       <bind nodeset="/data/fotoassinatura" type="binary"/>
      </model>
   </h:head>
