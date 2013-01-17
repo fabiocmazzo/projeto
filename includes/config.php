@@ -9,6 +9,8 @@
 	try 
 	{
 		$db = new Db('localhost', 'cadastro_familias', 'e8ap2epwde', 'cadastro_familia', 3306);
+        // Senha Programa Agua bxulwby0xt2q
+        //$db = new Db('localhost', 'programa_familia', 'bxulwby0xt2q', 'programa_familia', 3306);
 		$db->Execute('SET NAMES UTF8');
 	}
 	catch(ConnectException $exception) 

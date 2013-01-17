@@ -68,8 +68,8 @@
                  <div class="elem">
                         <label>Pesquisador:</label>
                         <div class="indent">
-                         <select id="idPesquisador" name="idPesquisador" class="chzn-select medium-select select"> 
-                           <option value="">Selecione um pesquisador</option>
+                         <select id="idPesquisador" name="idPesquisador" class="chzn-select" style="width: 500px;"> 
+                           <option value="">Selecione um pesquisador&nbsp;&nbsp;&nbsp;&nbsp;</option>
                            <?php
                                $sqlPesquisador = 'select * from pesquisador order by nmPesquisador';
                                $resultPesquisador = $db->query($sqlPesquisador);
@@ -87,7 +87,7 @@
                         <?php if(!isset($idPesquisador)) { ?>
                         <pre>Favor selecionar um pesquisador para associar comunidades.</prev>
                        <?php } else { ?>
-                         <select multiple data-placeholder="Selecione comunidades &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" style="width:100%;" id="pesquisadorComunidades" name="pesquisadorComunidades" class="chzn-select medium-select select">
+                         <select multiple data-placeholder="Selecione comunidades &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" style="width:500px;" id="pesquisadorComunidades" name="pesquisadorComunidades" class="chzn-select">
                          <?php
                                $sqlComunidade = 'select 
                                                     idComunidade,

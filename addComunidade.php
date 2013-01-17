@@ -89,7 +89,7 @@
                                $resultMunicipio = $db->query($sqlMunicipio);
                                
                                while($rowM = $resultMunicipio->fetch_assoc()) { ?>
-                                <option value="<?=$rowM['idMunicipio']?>"<?php $rowM['idMunicipio'] == $row['idMunicipio'] ? ' selected ' : ''; ?>><?=$rowM['nmMunicipio']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                                <option value="<?=$rowM['idMunicipio']?>"<?php if($rowM['idMunicipio'] == $row['idMunicipio']) { ?>  selected <?php } ?>><?=$rowM['nmMunicipio']?>&nbsp;&nbsp;&nbsp;&nbsp;</option>
                                <?php } ?>
                         </select>   
                         </div>

@@ -72,7 +72,6 @@
             <telefone/>
           </dadosendereco>
           <complementoprincipal>
-            <distanciasede/>
             <viasdeacesso/>
             <transitavelanotodo/>
           </complementoprincipal>
@@ -273,7 +272,6 @@
             <outrotipo/>
           </outraatividade>
           <agriculturafinalidade>
-            <qualagricultura/>
             <finalidadeagricultura/>
             <areavenda/>
             <areaconsumo/>
@@ -285,13 +283,11 @@
             <criacaodeanimais/>
             <quaisanimais/>
             <finalidadeanimais/>
-            <areavenda/>
-            <areaconsumo/>
+            <areatotal/>
           </criacaoanimais>
           <daassistencia>
             <assistencia/>
           </daassistencia>
-          <origemassistencia/>
           <fotoassinatura/>
           <pesquisa>
             familia
@@ -307,12 +303,12 @@
           </text>
           <text id="/data/responsavel/nomeresponsavel:label">
             <value>
-              Nome Entrevistador
+              23 - Nome Entrevistador
             </value>
           </text>
           <text id="/data/responsavel/cpf:label">
             <value>
-              CPF
+              23.2 - CPF
             </value>
           </text>
           <text id="/data/principal:label">
@@ -322,7 +318,7 @@
           </text>
           <text id="/data/principal/uf:label">
             <value>
-              UF
+              1 - UF
             </value>
           </text>
           <text id="/data/principal/uf:hint">
@@ -332,7 +328,7 @@
           </text>
           <text id="/data/principal/nomemunicipio:label">
             <value>
-              Nome do Município
+              1.2 - Nome do Município
             </value>
           </text>
           <text id="/data/principal/nomemunicipio:hint">
@@ -342,7 +338,7 @@
           </text>
           <text id="/data/principal/codigoibge:label">
             <value>
-              Código do Município no IBGE
+              1.3 - Código do Município no IBGE
             </value>
           </text>
           <text id="/data/principal/comunidade:label">
@@ -367,22 +363,22 @@
           </text>
           <text id="/data/dadosendereco/endereco:label">
             <value>
-              Endereço
+              1.5 - Endereço
             </value>
           </text>
           <text id="/data/dadosendereco/endereco:hint">
             <value>
-              Digite o endereço completo (Rua/Avenida/Estrada)
+             Digite o endereço completo (Rua/Avenida/Estrada)
             </value>
           </text>
           <text id="/data/dadosendereco/bairro:label">
             <value>
-              Bairro
+              1.6 - Bairro
             </value>
           </text>
           <text id="/data/dadosendereco/complemento:label">
             <value>
-              Complemento
+              1.7 - Complemento
             </value>
           </text>
           <text id="/data/dadosendereco/complemento:hint">
@@ -392,7 +388,7 @@
           </text>
           <text id="/data/dadosendereco/cep:label">
             <value>
-              CEP
+              1.8 - CEP
             </value>
           </text>
           <text id="/data/dadosendereco/cep:hint">
@@ -402,7 +398,7 @@
           </text>
           <text id="/data/dadosendereco/referencia:label">
             <value>
-              Local de Referência
+              1.9 - Local de Referência
             </value>
           </text>
           <text id="/data/dadosendereco/referencia:hint">
@@ -412,7 +408,7 @@
           </text>
           <text id="/data/dadosendereco/telefone:label">
             <value>
-              Telefone Principal da Família
+              1.10 - Telefone Principal da Família
             </value>
           </text>
           <text id="/data/dadosendereco/telefone:hint">
@@ -425,14 +421,9 @@
               Complemento
             </value>
           </text>
-          <text id="/data/complementoprincipal/distanciasede:label">
-            <value>
-              Distância da Sede do Município em km
-            </value>
-          </text>
           <text id="/data/complementoprincipal/viasdeacesso:label">
             <value>
-              Vias de Acesso à Casa
+              1.14 - Vias de Acesso à Casa
             </value>
           </text>
           <text id="/data/complementoprincipal/viasdeacesso:hint">
@@ -492,7 +483,7 @@
           </text>
           <text id="/data/coordenadageografica:label">
             <value>
-              Capturar Localização
+              1.12 - Capturar Localização
             </value>
           </text>
           <text id="/data/coordenadageografica:hint">
@@ -507,7 +498,7 @@
           </text>
           <text id="/data/quemeoentrevistado/entrevistadoeresponsavel:label">
             <value>
-              O entrevistado é o responsável pela unidade familiar (titular do NIS)?
+              2 - O entrevistado é o responsável pela unidade familiar (titular do NIS)?
             </value>
           </text>
           <text id="/data/quemeoentrevistado/entrevistadoeresponsavel:option0">
@@ -527,12 +518,12 @@
           </text>
           <text id="/data/responsavelunidadefamiliar/nomedoresponsavel:label">
             <value>
-              Nome Completo do Responsável pela Unidade Familiar (Beneficiário Titular do NIS)
+              2.1 - Nome Completo do Responsável pela Unidade Familiar (Beneficiário Titular do NIS)
             </value>
           </text>
           <text id="/data/responsavelunidadefamiliar/sexoresponsavel:label">
             <value>
-              Sexo do Responsável pela Unidade Familiar
+              2.2 - Sexo do Responsável pela Unidade Familiar
             </value>
           </text>
           <text id="/data/responsavelunidadefamiliar/sexoresponsavel:option0">
@@ -547,17 +538,17 @@
           </text>
           <text id="/data/responsavelunidadefamiliar/datanascimento:label">
             <value>
-              Data de Nascimento do Responsável
+              2.3 - Data de Nascimento do Responsável
             </value>
           </text>
           <text id="/data/responsavelunidadefamiliar/cpfresponsavel:label">
             <value>
-              CPF do Responsável
+              2.4 - CPF do Responsável
             </value>
           </text>
           <text id="/data/responsavelunidadefamiliar/rgresponsavel:label">
             <value>
-              RG do Responsável
+              2.5 - RG do Responsável
             </value>
           </text>
           <text id="/data/responsavelunidadefamiliar/Orgao:label">
@@ -572,7 +563,7 @@
           </text>
           <text id="/data/responsavelunidadefamiliar/nis:label">
             <value>
-              NIS
+              2.6 - NIS
             </value>
           </text>
           <text id="/data/responsavelunidadefamiliar/inss:label">
@@ -593,7 +584,7 @@
           </text>
           <text id="/data/dadosconjuge/nomeconjuge:label">
             <value>
-              Nome do Cônjuge
+              3.1 - Nome do Cônjuge
             </value>
           </text>
           <text id="/data/dadosconjuge/nomeconjuge:hint">
@@ -603,12 +594,12 @@
           </text>
           <text id="/data/dadosconjuge/cpfconjuge:label">
             <value>
-              CPF do Cônjuge
+              3.2 - CPF do Cônjuge
             </value>
           </text>
           <text id="/data/dadosconjuge/rgconjuge:label">
             <value>
-              RG do Cônjuge
+              3.3 - RG do Cônjuge
             </value>
           </text>
           <text id="/data/dadosdoentrevistado:label">
@@ -672,27 +663,27 @@
           </text>
           <text id="/data/composicaogrupofamiliar/totalfilhos:label">
             <value>
-              Total de filhos que moram na mesma residência (independente da idade):
+              5.1 - Total de filhos que moram na mesma residência (independente da idade):
             </value>
           </text>
           <text id="/data/composicaogrupofamiliar/criancasate06anos:label">
             <value>
-              Número de crianças com idade até 06 anos:
+              5.2 - Número de crianças com idade até 06 anos:
             </value>
           </text>
           <text id="/data/composicaogrupofamiliar/criancasnaescola:label">
             <value>
-              Número de crianças ou jovens na escola:
+              5.3 - Número de crianças ou jovens na escola:
             </value>
           </text>
           <text id="/data/composicaogrupofamiliar/idosos:label">
             <value>
-              Número de idosos (com idade acima de 65 anos):
+              5.4 - Número de idosos (com idade acima de 65 anos):
             </value>
           </text>
           <text id="/data/composicaogrupofamiliar/deficiencia:label">
             <value>
-              Número de pessoas com deficiência:
+              5.5 - Número de pessoas com deficiência:
             </value>
           </text>
           <text id="/data/dadosresidencia:label">
@@ -761,7 +752,7 @@
           </text>
           <text id="/data/energia:label">
             <value>
-              Possui energia?
+              8 - Possui energia?
             </value>
           </text>
           <text id="/data/energia:option0">
@@ -821,7 +812,7 @@
           </text>
           <text id="/data/esgoto/banheiro:label">
             <value>
-              Possui banheiro?
+              9 - Possui banheiro?
             </value>
           </text>
           <text id="/data/esgoto/banheiro:hint">
@@ -840,7 +831,7 @@
           </text>
           <text id="/data/esgoto/esgotamentosanitario:label">
             <value>
-              Possui esgotamento sanitário?
+              10 - Possui esgotamento sanitário?
             </value>
           </text>
           <text id="/data/esgoto/esgotamentosanitario:option0">
@@ -885,7 +876,7 @@
           </text>
           <text id="/data/destinolixo:label">
             <value>
-              Qual é o destino do lixo da residência?
+              11 - Qual é o destino do lixo da residência?
             </value>
           </text>
           <text id="/data/destinolixo:option0">
@@ -920,7 +911,7 @@
           </text>
           <text id="/data/dadossocioeconomicos/beneficiossociais:label">
             <value>
-              O responsável pela unidade familiar recebe algum tipo de benefício financeiro de programas sociais?
+              12 - O responsável pela unidade familiar recebe algum tipo de benefício financeiro de programas sociais?
             </value>
           </text>
           <text id="/data/dadossocioeconomicos/beneficiossociais:option0">
@@ -985,7 +976,7 @@
           </text>
           <text id="/data/outrosdadossocioeconomicos/ocupacao:label">
             <value>
-              Ocupação do responsável pela unidade familiar:
+              13 - Ocupação do responsável pela unidade familiar:
             </value>
           </text>
           <text id="/data/outrosdadossocioeconomicos/ocupacao:hint">
@@ -1035,7 +1026,7 @@
           </text>
           <text id="/data/outrosdadossocioeconomicos/periodorenda:label">
             <value>
-              Período de renda:
+              14 - Período de renda:
             </value>
           </text>
           <text id="/data/outrosdadossocioeconomicos/periodorenda:option0">
@@ -1065,12 +1056,12 @@
           </text>
           <text id="/data/outrosdadossocioeconomicos/valorrenda:label">
             <value>
-              Qual é o valor mensal da renda familiar em R$?
+              15 - Qual é o valor mensal da renda familiar em R$?
             </value>
           </text>
           <text id="/data/outrosdadossocioeconomicos/totalpessoas:label">
             <value>
-              Total de pessoas que moram na residência (titular do NIS + cônjuge + filhos + parentes + outros):
+              15.1 - Total de pessoas que moram na residência (titular do NIS + cônjuge + filhos + parentes + outros):
             </value>
           </text>
           <text id="/data/acessoeusodaagua:label">
@@ -1080,7 +1071,7 @@
           </text>
           <text id="/data/acessoeusodaagua/acessoagua:label">
             <value>
-              A residência possui acesso à água?
+              17 - A residência possui acesso à água?
             </value>
           </text>
           <text id="/data/acessoeusodaagua/acessoagua:option0">
@@ -1095,7 +1086,7 @@
           </text>
           <text id="/data/tiposdefonte:label">
             <value>
-              Especifique o(s) tipo(s) de fonte.
+              17.1.2 - Especifique o(s) tipo(s) de fonte.
             </value>
           </text>
           <text id="/data/tiposdefonte:hint">
@@ -2065,7 +2056,7 @@
           </text>
           <text id="/data/tratamentoagua/aguatratada:label">
             <value>
-              A água consumida é tratada?
+              17.1.2.1 - A água consumida é tratada?
             </value>
           </text>
           <text id="/data/tratamentoagua/aguatratada:option0">
@@ -2115,7 +2106,7 @@
           </text>
           <text id="/data/dadosprodutivos/dadospropriedade:label">
             <value>
-              Dados da Propriedade:
+              18 - Dados da Propriedade:
             </value>
           </text>
           <text id="/data/dadosprodutivos/dadospropriedade:option0">
@@ -2200,12 +2191,12 @@
           </text>
           <text id="/data/area/areatotal:label">
             <value>
-              Indique a área total da propriedade (em ha):
+              18.10 - Indique a área total da propriedade (em ha):
             </value>
           </text>
           <text id="/data/area/areaproducao:label">
             <value>
-              Indique a área disponível para produção (em ha):
+              18.11 - Indique a área disponível para produção (em ha):
             </value>
           </text>
           <text id="/data/area/areaproducao:hint">
@@ -2219,7 +2210,7 @@
           </text>
           <text id="/data/tipoatividade/assinaletipoatividade:label">
             <value>
-              Assinale o(s) tipo(s) de atividade agrícola e/ou pecuária na propriedade:
+              19 - Assinale o(s) tipo(s) de atividade agrícola e/ou pecuária na propriedade:
             </value>
           </text>
           <text id="/data/tipoatividade/assinaletipoatividade:hint">
@@ -2362,11 +2353,6 @@
               Finalidade da Agricultura
             </value>
           </text>
-          <text id="/data/agriculturafinalidade/qualagricultura:label">
-            <value>
-              Qual tipo de agricultura é cultivada?
-            </value>
-          </text>
            <text id="/data/agriculturafinalidade/finalidadeagricultura:label">
             <value>
               Selecione a finalidade da atividade de agricultura da propriedade:
@@ -2384,12 +2370,12 @@
           </text>
           <text id="/data/agriculturafinalidade/areavenda:label">
             <value>
-              Indique a área (em ha) utilizada para a agricultura destinada para venda:
+              20.1 - Indique a área (em ha) utilizada para a agricultura destinada para venda:
             </value>
           </text>
           <text id="/data/agriculturafinalidade/areaconsumo:label">
             <value>
-              Indique a área (em ha) utilizada para a agricultura destinada para consumo próprio:
+              20.2 - Indique a área (em ha) utilizada para a agricultura destinada para consumo próprio:
             </value>
           </text>
           <text id="/data/tiposirrigacao:label">
@@ -2434,7 +2420,7 @@
           </text>
           <text id="/data/criacaoanimais/criacaodeanimais:label">
             <value>
-              Há criação de animais na propriedade?
+              21 - Há criação de animais na propriedade?
             </value>
           </text>
           <text id="/data/criacaoanimais/criacaodeanimais:option0">
@@ -2449,7 +2435,7 @@
           </text>
           <text id="/data/criacaoanimais/quaisanimais:label">
             <value>
-              Especifique quais animais são criados na propriedade.
+              21.1 - Especifique quais animais são criados na propriedade.
             </value>
           </text>
           <text id="/data/criacaoanimais/finalidadeanimais:label">
@@ -2467,24 +2453,19 @@
               Consumo próprio
             </value>
           </text>
-          <text id="/data/criacaoanimais/areavenda:label">
+          <text id="/data/criacaoanimais/areatotal:label">
             <value>
-              Indique a área (em ha) utilizada para a criação de animais destinada para venda:
+              Indique a área total (em ha) utilizada para a criação de animais:
             </value>
           </text>
-          <text id="/data/criacaoanimais/areaconsumo:label">
-            <value>
-              Indique a área (em ha) utilizada para a criação de animais destinada para o consumo próprio:
-            </value>
-          </text>
-          <text id="/data/daassistencia:label">
+           <text id="/data/daassistencia:label">
             <value>
               Da Assistência
             </value>
           </text>
           <text id="/data/daassistencia/assistencia:label">
             <value>
-              Recebe Assistência Técnica e Extensão Rural (ATER)?
+              22 - Recebe Assistência Técnica e Extensão Rural (ATER)?
             </value>
           </text>
           <text id="/data/daassistencia/assistencia:option0">
@@ -2495,31 +2476,6 @@
           <text id="/data/daassistencia/assistencia:option1">
             <value>
               Não
-            </value>
-          </text>
-          <text id="/data/origemassistencia:label">
-            <value>
-              Qual é a origem?
-            </value>
-          </text>
-          <text id="/data/origemassistencia:option0">
-            <value>
-              Governo Municipal
-            </value>
-          </text>
-          <text id="/data/origemassistencia:option1">
-            <value>
-              Governo Estadual
-            </value>
-          </text>
-          <text id="/data/origemassistencia:option2">
-            <value>
-              Governo Federal
-            </value>
-          </text>
-          <text id="/data/origemassistencia:option3">
-            <value>
-              Sociedade Civil Organizada
             </value>
           </text>
           <text id="/data/fotoassinatura:label">
@@ -2544,7 +2500,6 @@
       <bind nodeset="/data/dadosendereco/cep" required="true()" type="int"/>
       <bind nodeset="/data/dadosendereco/referencia" required="true()" type="string"/>
       <bind nodeset="/data/dadosendereco/telefone"  required="true()" type="string"/>
-      <bind nodeset="/data/complementoprincipal/distanciasede" required="true()" type="int"/>
       <bind nodeset="/data/complementoprincipal/viasdeacesso" required="true()" type="select"/>
       <bind nodeset="/data/complementoprincipal/transitavelanotodo" required="true()" type="select1"/>
       <bind nodeset="/data/coordenadageografica" required="true()" type="geopoint"/>
@@ -2552,20 +2507,20 @@
       <bind nodeset="/data/responsavelunidadefamiliar/nomedoresponsavel" required="true()" type="string"/>
       <bind nodeset="/data/responsavelunidadefamiliar/sexoresponsavel" required="true()" type="select1"/>
       <bind nodeset="/data/responsavelunidadefamiliar/datanascimento"  required="true()" type="date"/>
-      <bind nodeset="/data/responsavelunidadefamiliar/cpfresponsavel" required="true()" type="string"/>
+      <bind nodeset="/data/responsavelunidadefamiliar/cpfresponsavel"  type="string" required="true()" constraint="(regex(., '^.{11,11}$'))" jr:constraintMsg="CPF Inválido"/>
       <bind nodeset="/data/responsavelunidadefamiliar/rgresponsavel" required="true()" type="string"/>
       <bind nodeset="/data/responsavelunidadefamiliar/Orgao" required="true()" type="string"/>
       <bind nodeset="/data/responsavelunidadefamiliar/nis" required="true()" type="string"/>
       <bind nodeset="/data/responsavelunidadefamiliar/inss" type="string"/>
       <bind nodeset="/data/responsavelunidadefamiliar/apelido" type="string"/>
       <bind nodeset="/data/dadosconjuge/nomeconjuge" type="string"/>
-      <bind nodeset="/data/dadosconjuge/cpfconjuge" type="string"/>
+      <bind nodeset="/data/dadosconjuge/cpfconjuge" type="string" constraint="(regex(., '^.{11,11}$'))" jr:constraintMsg="CPF Inválido"/>
       <bind nodeset="/data/dadosconjuge/rgconjuge" type="string"/>
       <bind nodeset="/data/dadosdoentrevistado" relevant="(selected(/data/quemeoentrevistado/entrevistadoeresponsavel,'nao'))"/>
       <bind nodeset="/data/dadosdoentrevistado/dadosentrevistado" type="select1" relevant="(selected(/data/quemeoentrevistado/entrevistadoeresponsavel,'nao'))"/>
       <bind nodeset="/data/dadosdoentrevistado/grauparentesco" type="string" relevant="(selected(/data/quemeoentrevistado/entrevistadoeresponsavel,'nao'))"/>
-      <bind nodeset="/data/dadosdoentrevistado/nomeentrevistado" type="string" relevant="(selected(/data/quemeoentrevistado/entrevistadoeresponsavel,'nao'))"/>
-      <bind nodeset="/data/dadosdoentrevistado/cpfentrevistado" type="string" relevant="(selected(/data/quemeoentrevistado/entrevistadoeresponsavel,'nao'))"/>
+      <bind nodeset="/data/dadosdoentrevistado/nomeentrevistado" type="string" relevant="(selected(/data/quemeoentrevistado/entrevistadoeresponsavel,'nao'))" />
+      <bind nodeset="/data/dadosdoentrevistado/cpfentrevistado" type="string" relevant="(selected(/data/quemeoentrevistado/entrevistadoeresponsavel,'nao'))" constraint="(regex(., '^.{11,11}$'))" jr:constraintMsg="CPF Inválido"/>
       <bind nodeset="/data/dadosdoentrevistado/rgentrevistado" type="string" relevant="(selected(/data/quemeoentrevistado/entrevistadoeresponsavel,'nao'))"/>
       <bind nodeset="/data/composicaogrupofamiliar/totalfilhos" required="true()" type="int" constraint="(. &gt;= '0' and . &lt;= '20')" jr:constraintMsg="O valor deve estar entre  0 e 20"/>
       <bind nodeset="/data/composicaogrupofamiliar/criancasate06anos" required="true()" type="int" constraint="(. &gt;= '0' and . &lt;= '20')" jr:constraintMsg="O valor deve estar entre 0 e 20"/>
@@ -2588,7 +2543,7 @@
       <bind nodeset="/data/outrobeneficio" type="string" required="true()" relevant="(selected(/data/tipobeneficio,'outros'))" jr:constraintMsg="jr:itext('/data/outrobeneficio:constraintMsg')"/>
       <bind nodeset="/data/outrosdadossocioeconomicos/ocupacao" required="true()" type="select"/>
       <bind nodeset="/data/outrosdadossocioeconomicos/periodorenda" required="true()" type="select1"/>
-      <bind nodeset="/data/outrosdadossocioeconomicos/valorrenda" required="true()" type="int"/>
+      <bind nodeset="/data/outrosdadossocioeconomicos/valorrenda" required="true()" type="decimal"/>
       <bind nodeset="/data/outrosdadossocioeconomicos/totalpessoas" required="true()" type="int" constraint="(. &gt;= '0' and . &lt;= '99')" jr:constraintMsg="Value must be between 0 and 99"/>
       <bind nodeset="/data/acessoeusodaagua/acessoagua" required="true()" type="select1"/>
       <bind nodeset="/data/tiposdefonte" type="select" required="true()" relevant="(selected(/data/acessoeusodaagua/acessoagua,'sim'))"/>
@@ -2677,7 +2632,7 @@
       <bind nodeset="/data/maodeobra/pessoascontratadas" required="true()" type="int" constraint="(. &gt;= '0' and . &lt;= '9999')" jr:constraintMsg="Value must be between 0 and 9999"/>
       <bind nodeset="/data/area/areatotal" required="true()" type="int"/>
       <bind nodeset="/data/area/areaproducao" required="true()" type="int"/>
-      <bind nodeset="/data/tipoatividade/assinaletipoatividade" type="select"/>
+      <bind nodeset="/data/tipoatividade/assinaletipoatividade" type="select" required="true()" />
       <bind nodeset="/data/frutas" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'frutas'))"/>
       <bind nodeset="/data/frutas/tiposdefruta" type="string" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'frutas'))"/>
       <bind nodeset="/data/agricultura" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'agricultura'))"/>
@@ -2688,7 +2643,6 @@
       <bind nodeset="/data/artesanato/tipoartesanato" type="string" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'artesanato'))"/>
       <bind nodeset="/data/outraatividade" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'outraatividade'))"/>
       <bind nodeset="/data/outraatividade/outrotipo" required="true()" type="string" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'outraatividade'))"/>
-      <bind nodeset="/data/agriculturafinalidade/qualagricultura" required="true()" type="string"/>
       <bind nodeset="/data/agriculturafinalidade/finalidadeagricultura" required="true()" type="select"/>
       <bind nodeset="/data/agriculturafinalidade/areavenda" required="true()" type="int"/>
       <bind nodeset="/data/agriculturafinalidade/areaconsumo" required="true()" type="int"/>
@@ -2696,10 +2650,8 @@
       <bind nodeset="/data/criacaoanimais/criacaodeanimais" required="true()" type="select1" />
       <bind nodeset="/data/criacaoanimais/quaisanimais" required="true()" type="string"/>
       <bind nodeset="/data/criacaoanimais/finalidadeanimais" required="true()" type="select"/>
-      <bind nodeset="/data/criacaoanimais/areavenda" required="true()" type="int"/>
-      <bind nodeset="/data/criacaoanimais/areaconsumo" required="true()" type="int"/>
+      <bind nodeset="/data/criacaoanimais/areatotal" required="true()" type="int"/>
       <bind nodeset="/data/daassistencia/assistencia"  required="true()" type="select1"/>
-      <bind nodeset="/data/origemassistencia" required="true()" type="select" relevant="(selected(/data/daassistencia/assistencia,'sim'))"/>
       <bind nodeset="/data/fotoassinatura" type="binary"/>
      </model>
   </h:head>
@@ -2762,10 +2714,7 @@
     </group>
     <group appearance="field-list">
       <label ref="jr:itext('/data/complementoprincipal:label')"/>
-      <input ref="/data/complementoprincipal/distanciasede">
-        <label ref="jr:itext('/data/complementoprincipal/distanciasede:label')"/>
-      </input>
-      <select ref="/data/complementoprincipal/viasdeacesso">
+        <select ref="/data/complementoprincipal/viasdeacesso">
         <label ref="jr:itext('/data/complementoprincipal/viasdeacesso:label')"/>
         <hint ref="jr:itext('/data/complementoprincipal/viasdeacesso:hint')"/>
         <item>
@@ -2846,7 +2795,7 @@
       <input ref="/data/responsavelunidadefamiliar/datanascimento">
         <label ref="jr:itext('/data/responsavelunidadefamiliar/datanascimento:label')"/>
       </input>
-      <input ref="/data/responsavelunidadefamiliar/cpfresponsavel">
+      <input ref="/data/responsavelunidadefamiliar/cpfresponsavel" appearance="cpf">
         <label ref="jr:itext('/data/responsavelunidadefamiliar/cpfresponsavel:label')"/>
       </input>
       <input ref="/data/responsavelunidadefamiliar/rgresponsavel">
@@ -2873,7 +2822,7 @@
         <label ref="jr:itext('/data/dadosconjuge/nomeconjuge:label')"/>
         <hint ref="jr:itext('/data/dadosconjuge/nomeconjuge:hint')"/>
       </input>
-      <input ref="/data/dadosconjuge/cpfconjuge">
+      <input ref="/data/dadosconjuge/cpfconjuge" appearance="cpf">
         <label ref="jr:itext('/data/dadosconjuge/cpfconjuge:label')"/>
       </input>
       <input ref="/data/dadosconjuge/rgconjuge">
@@ -2905,7 +2854,7 @@
         <label ref="jr:itext('/data/dadosdoentrevistado/nomeentrevistado:label')"/>
         <hint ref="jr:itext('/data/dadosdoentrevistado/nomeentrevistado:hint')"/>
       </input>
-      <input ref="/data/dadosdoentrevistado/cpfentrevistado">
+      <input ref="/data/dadosdoentrevistado/cpfentrevistado" appearance="cpf">
         <label ref="jr:itext('/data/dadosdoentrevistado/cpfentrevistado:label')"/>
       </input>
       <input ref="/data/dadosdoentrevistado/rgentrevistado">
@@ -4043,10 +3992,7 @@
     </group>
     <group appearance="field-list">
       <label ref="jr:itext('/data/agriculturafinalidade:label')"/>
-      <input ref="/data/agriculturafinalidade/qualagricultura">
-        <label ref="jr:itext('/data/agriculturafinalidade/qualagricultura:label')"/>
-      </input>
-      <select ref="/data/agriculturafinalidade/finalidadeagricultura">
+        <select ref="/data/agriculturafinalidade/finalidadeagricultura">
         <label ref="jr:itext('/data/agriculturafinalidade/finalidadeagricultura:label')"/>
         <item>
           <label ref="jr:itext('/data/agriculturafinalidade/finalidadeagricultura:option0')"/>
@@ -4117,13 +4063,10 @@
           <value>consumo</value>
         </item>
       </select>
-      <input ref="/data/criacaoanimais/areavenda">
-        <label ref="jr:itext('/data/criacaoanimais/areavenda:label')"/>
+      <input ref="/data/criacaoanimais/areatotal">
+        <label ref="jr:itext('/data/criacaoanimais/areatotal:label')"/>
       </input>
-      <input ref="/data/criacaoanimais/areaconsumo">
-        <label ref="jr:itext('/data/criacaoanimais/areaconsumo:label')"/>
-      </input>
-    </group>
+      </group>
     <group appearance="field-list">
       <label ref="jr:itext('/data/daassistencia:label')"/>
       <select1 ref="/data/daassistencia/assistencia">
@@ -4138,26 +4081,7 @@
         </item>
       </select1>
     </group>
-    <select ref="/data/origemassistencia">
-      <label ref="jr:itext('/data/origemassistencia:label')"/>
-      <item>
-        <label ref="jr:itext('/data/origemassistencia:option0')"/>
-        <value>municipal</value>
-      </item>
-      <item>
-        <label ref="jr:itext('/data/origemassistencia:option1')"/>
-        <value>estadual</value>
-      </item>
-      <item>
-        <label ref="jr:itext('/data/origemassistencia:option2')"/>
-        <value>federal</value>
-      </item>
-      <item>
-        <label ref="jr:itext('/data/origemassistencia:option3')"/>
-        <value>sociedadecivil</value>
-      </item>
-    </select>
-    <upload ref="/data/fotoassinatura" mediatype="image/*">
+      <upload ref="/data/fotoassinatura" mediatype="image/*">
       <label ref="jr:itext('/data/fotoassinatura:label')"/>
     </upload>
   </h:body>

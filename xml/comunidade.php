@@ -1058,7 +1058,7 @@
       <bind nodeset="/data/doencas" required="true()" type="select1"/>
       <bind nodeset="/data/doencasfrequentes" type="select" relevant="(selected(/data/doencas,&quot;sim&quot;))"/>
       <bind nodeset="/data/outrasdoencas" required="true()" type="string" relevant="(selected(/data/doencasfrequentes,&quot;outras&quot;))"/>
-      <bind nodeset="/data/servicos" type="select"/>
+      <bind nodeset="/data/servicos" type="select" required="true()"/>
       <bind nodeset="/data/outroservico" required="true()" type="string" relevant="(selected(/data/servicos,&quot;outros&quot;))"/>
       <bind nodeset="/data/associacao" type="select1"/>
       <bind nodeset="/data/organizacao" required="true()" type="select" relevant="(selected(/data/associacao,&quot;sim&quot;))"/>

@@ -37,7 +37,7 @@
             </ul>
 		</li>   
   		<li <?php if(in_array($pagina,array('pesquisadores','addPesquisador','pesquisadorComunidade','pesquisadorLote','pesquisadorSubLote'))) {?>class="expand"<?php } ?>>
-			<a href="#"><span class="files icon">Pesquisador</span><span class="num">5</span></a>
+			<a href="#"><span class="files icon">Pesquisador</span><span class="num">3</span></a>
 			<ul class="acitem">
 				<li><a href="/pesquisadores.php"><span class="invoice icon">Listar</span></a></li>
 				<li><a href="/addPesquisador.php"><span class="w-editor icon">Adicionar</span></a></li>
