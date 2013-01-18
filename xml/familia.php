@@ -87,9 +87,9 @@
             <rgresponsavel/>
             <Orgao/>
             <nis/>
-            <inss/>
             <apelido/>
           </responsavelunidadefamiliar>
+          <temconjuge/>
           <dadosconjuge>
             <nomeconjuge/>
             <cpfconjuge/>
@@ -111,6 +111,7 @@
           </composicaogrupofamiliar>
           <dadosresidencia>
             <cobertura/>
+            <outracobertura/>
             <situacaocobertura/>
             <cisterna/>
           </dadosresidencia>
@@ -273,8 +274,7 @@
           </outraatividade>
           <agriculturafinalidade>
             <finalidadeagricultura/>
-            <areavenda/>
-            <areaconsumo/>
+            <areatotal/>
           </agriculturafinalidade>
           <tiposirrigacao>
             <tiposdeirrigacao/>
@@ -321,21 +321,12 @@
               1 - UF
             </value>
           </text>
-          <text id="/data/principal/uf:hint">
-            <value>
-              Digite a sigla do Estado
-            </value>
-          </text>
           <text id="/data/principal/nomemunicipio:label">
             <value>
               1.2 - Nome do Município
             </value>
           </text>
-          <text id="/data/principal/nomemunicipio:hint">
-            <value>
-              Digite o nome do município
-            </value>
-          </text>
+          
           <text id="/data/principal/codigoibge:label">
             <value>
               1.3 - Código do Município no IBGE
@@ -346,12 +337,7 @@
               Comunidade
             </value>
           </text>
-          <text id="/data/principal/comunidade:hint">
-            <value>
-              Digite o nome da comunidade
-            </value>
-          </text>
-          <text id="/data/principal/lote:label">
+           <text id="/data/principal/lote:label">
             <value>
               Lote
             </value>
@@ -566,17 +552,26 @@
               2.6 - NIS
             </value>
           </text>
-          <text id="/data/responsavelunidadefamiliar/inss:label">
-            <value>
-              INSS
-            </value>
-          </text>
-          <text id="/data/responsavelunidadefamiliar/apelido:label">
+           <text id="/data/responsavelunidadefamiliar/apelido:label">
             <value>
               Apelido
             </value>
           </text>
-          
+           <text id="/data/temconjuge:label">
+            <value>
+              Possui Cônjuge?
+            </value>
+          </text>
+           <text id="/data/temconjuge:option0">
+            <value>
+              Sim
+            </value>
+          </text>
+           <text id="/data/temconjuge:option1">
+            <value>
+              Não
+            </value>
+          </text>                    
           <text id="/data/dadosconjuge:label">
             <value>
               Dados do Cônjuge do Responsável
@@ -710,8 +705,13 @@
             <value>
               Outros
             </value>
+            </text>
+            <text id="/data/dadosresidencia/outracobertura:label">
+            <value>
+              Caso seja outro tipo de cobertura, descreva:
+            </value>
           </text>
-          <text id="/data/dadosresidencia/situacaocobertura:label">
+             <text id="/data/dadosresidencia/situacaocobertura:label">
             <value>
               Caso a residência seja atendida por uma cisterna, qual a situação da cobertura?
             </value>
@@ -1054,6 +1054,11 @@
               Diária
             </value>
           </text>
+          <text id="/data/outrosdadossocioeconomicos/periodorenda:option5">
+            <value>
+              Sem Renda
+            </value>
+          </text>          
           <text id="/data/outrosdadossocioeconomicos/valorrenda:label">
             <value>
               15 - Qual é o valor mensal da renda familiar em R$?
@@ -2156,7 +2161,7 @@
           </text>
           <text id="/data/maodeobra/tipomaodeobra:label">
             <value>
-              Assinale o tipo de mão-de-obra utilizada:
+              18.8 - Assinale o tipo de mão-de-obra utilizada:
             </value>
           </text>
           <text id="/data/maodeobra/tipomaodeobra:hint">
@@ -2368,14 +2373,9 @@
               Consumo próprio
             </value>
           </text>
-          <text id="/data/agriculturafinalidade/areavenda:label">
+          <text id="/data/agriculturafinalidade/areatotal:label">
             <value>
               20.1 - Indique a área (em ha) utilizada para a agricultura destinada para venda:
-            </value>
-          </text>
-          <text id="/data/agriculturafinalidade/areaconsumo:label">
-            <value>
-              20.2 - Indique a área (em ha) utilizada para a agricultura destinada para consumo próprio:
             </value>
           </text>
           <text id="/data/tiposirrigacao:label">
@@ -2511,11 +2511,12 @@
       <bind nodeset="/data/responsavelunidadefamiliar/rgresponsavel" required="true()" type="string"/>
       <bind nodeset="/data/responsavelunidadefamiliar/Orgao" required="true()" type="string"/>
       <bind nodeset="/data/responsavelunidadefamiliar/nis" required="true()" type="string"/>
-      <bind nodeset="/data/responsavelunidadefamiliar/inss" type="string"/>
       <bind nodeset="/data/responsavelunidadefamiliar/apelido" type="string"/>
-      <bind nodeset="/data/dadosconjuge/nomeconjuge" type="string"/>
-      <bind nodeset="/data/dadosconjuge/cpfconjuge" type="string" constraint="(regex(., '^.{11,11}$'))" jr:constraintMsg="CPF Inválido"/>
-      <bind nodeset="/data/dadosconjuge/rgconjuge" type="string"/>
+      <bind nodeset="/data/temconjuge" required="true()" type="select1"/>
+      <bind nodeset="/data/dadosdoentrevistado" relevant="(selected(/data/temconjuge,'sim'))"/>
+      <bind nodeset="/data/dadosconjuge/nomeconjuge" type="string" required="true()" relevant="(selected(/data/temconjuge,'sim'))"/>
+      <bind nodeset="/data/dadosconjuge/cpfconjuge" type="string" required="true()" relevant="(selected(/data/temconjuge,'sim'))" constraint="(regex(., '^.{11,11}$'))" jr:constraintMsg="CPF Inválido"/>
+      <bind nodeset="/data/dadosconjuge/rgconjuge" type="string" required="true()" relevant="(selected(/data/temconjuge,'sim'))"/>
       <bind nodeset="/data/dadosdoentrevistado" relevant="(selected(/data/quemeoentrevistado/entrevistadoeresponsavel,'nao'))"/>
       <bind nodeset="/data/dadosdoentrevistado/dadosentrevistado" type="select1" relevant="(selected(/data/quemeoentrevistado/entrevistadoeresponsavel,'nao'))"/>
       <bind nodeset="/data/dadosdoentrevistado/grauparentesco" type="string" relevant="(selected(/data/quemeoentrevistado/entrevistadoeresponsavel,'nao'))"/>
@@ -2528,8 +2529,9 @@
       <bind nodeset="/data/composicaogrupofamiliar/idosos" type="int" required="true()" constraint="(. &gt;= '0' and . &lt;= '20')" jr:constraintMsg="O valor deve estar entre 0 e 20"/>
       <bind nodeset="/data/composicaogrupofamiliar/deficiencia" type="int" required="true()" constraint="(. &gt;= '0' and . &lt;= '20')" jr:constraintMsg="O valor deve estar entre 0 e 20"/>
       <bind nodeset="/data/dadosresidencia/cobertura" required="true()" type="select1"/>
+      <bind nodeset="/data/dadosresidencia/outracobertura" required="(selected(/data/dadosresidencia/cobertura,'outros'))" type="string"/>
       <bind nodeset="/data/dadosresidencia/situacaocobertura" required="true()" type="select1"/>
-      <bind nodeset="/data/dadosresidencia/cisterna" required="true()" type="string"/>
+      <bind nodeset="/data/dadosresidencia/cisterna" required="(selected(/data/dadosresidencia/situacaocobertura,'naotemcisterna'))" type="string"/>
       <bind nodeset="/data/energia" required="true()" type="select1"/>
       <bind nodeset="/data/dadosenergia/tiposenergia" required="true()" type="select" relevant="(selected(/data/energia,'sim'))"/>
       <bind nodeset="/data/dadosenergia/tipoenergia" required="true()" type="string" relevant="(selected(/data/dadosenergia/tiposenergia,'outros'))"/>
@@ -2644,13 +2646,12 @@
       <bind nodeset="/data/outraatividade" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'outraatividade'))"/>
       <bind nodeset="/data/outraatividade/outrotipo" required="true()" type="string" relevant="(selected(/data/tipoatividade/assinaletipoatividade,'outraatividade'))"/>
       <bind nodeset="/data/agriculturafinalidade/finalidadeagricultura" required="true()" type="select"/>
-      <bind nodeset="/data/agriculturafinalidade/areavenda" required="true()" type="int"/>
-      <bind nodeset="/data/agriculturafinalidade/areaconsumo" required="true()" type="int"/>
+      <bind nodeset="/data/agriculturafinalidade/areatotal" required="true()" type="int"/>
       <bind nodeset="/data/tiposirrigacao/tiposdeirrigacao" required="true()" type="select"/>
       <bind nodeset="/data/criacaoanimais/criacaodeanimais" required="true()" type="select1" />
-      <bind nodeset="/data/criacaoanimais/quaisanimais" required="true()" type="string"/>
-      <bind nodeset="/data/criacaoanimais/finalidadeanimais" required="true()" type="select"/>
-      <bind nodeset="/data/criacaoanimais/areatotal" required="true()" type="int"/>
+      <bind nodeset="/data/criacaoanimais/quaisanimais" required="(selected(/data/criacaoanimais/criacaodeanimais,'sim'))" type="string"/>
+      <bind nodeset="/data/criacaoanimais/finalidadeanimais" required="(selected(/data/criacaoanimais/criacaodeanimais,'sim'))" type="select"/>
+      <bind nodeset="/data/criacaoanimais/areatotal" required="(selected(/data/criacaoanimais/criacaodeanimais,'sim'))" type="int"/>
       <bind nodeset="/data/daassistencia/assistencia"  required="true()" type="select1"/>
       <bind nodeset="/data/fotoassinatura" type="binary"/>
      </model>
@@ -2669,18 +2670,15 @@
       <label ref="jr:itext('/data/principal:label')"/>
       <input ref="/data/principal/uf">
         <label ref="jr:itext('/data/principal/uf:label')"/>
-        <hint ref="jr:itext('/data/principal/uf:hint')"/>
       </input>
       <input ref="/data/principal/nomemunicipio">
         <label ref="jr:itext('/data/principal/nomemunicipio:label')"/>
-        <hint ref="jr:itext('/data/principal/nomemunicipio:hint')"/>
       </input>
       <input ref="/data/principal/codigoibge">
         <label ref="jr:itext('/data/principal/codigoibge:label')"/>
       </input>
       <input ref="/data/principal/comunidade">
         <label ref="jr:itext('/data/principal/comunidade:label')"/>
-        <hint ref="jr:itext('/data/principal/comunidade:hint')"/>
       </input>
       <input ref="/data/principal/lote">
         <label ref="jr:itext('/data/principal/lote:label')"/>
@@ -2808,14 +2806,22 @@
       <input ref="/data/responsavelunidadefamiliar/nis">
         <label ref="jr:itext('/data/responsavelunidadefamiliar/nis:label')"/>
       </input>
-      <input ref="/data/responsavelunidadefamiliar/inss">
-        <label ref="jr:itext('/data/responsavelunidadefamiliar/inss:label')"/>
-      </input>
-        <input ref="/data/responsavelunidadefamiliar/apelido">
+      <input ref="/data/responsavelunidadefamiliar/apelido">
         <label ref="jr:itext('/data/responsavelunidadefamiliar/apelido:label')"/>
       </input>
 
     </group>
+    <select1 ref="/data/temconjuge">
+        <label ref="jr:itext('/data/temconjuge:label')"/>
+        <item>
+          <label ref="jr:itext('/data/temconjuge:option0')"/>
+          <value>sim</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/temconjuge:option1')"/>
+          <value>nao</value>
+        </item>
+      </select1>
     <group appearance="field-list">
       <label ref="jr:itext('/data/dadosconjuge:label')"/>
       <input ref="/data/dadosconjuge/nomeconjuge">
@@ -2896,6 +2902,9 @@
           <value>outros</value>
         </item>
       </select1>
+      <input ref="/data/dadosresidencia/outracobertura">
+        <label ref="jr:itext('/data/dadosresidencia/outracobertura:label')"/>
+      </input>
       <select1 ref="/data/dadosresidencia/situacaocobertura">
         <label ref="jr:itext('/data/dadosresidencia/situacaocobertura:label')"/>
         <item>
@@ -3139,6 +3148,10 @@
           <label ref="jr:itext('/data/outrosdadossocioeconomicos/periodorenda:option4')"/>
           <value>diaria</value>
         </item>
+        <item>
+          <label ref="jr:itext('/data/outrosdadossocioeconomicos/periodorenda:option5')"/>
+          <value>semrenda</value>
+        </item>        
       </select1>
       <input ref="/data/outrosdadossocioeconomicos/valorrenda">
         <label ref="jr:itext('/data/outrosdadossocioeconomicos/valorrenda:label')"/>
@@ -4003,11 +4016,8 @@
           <value>consumo proprio</value>
         </item>
       </select>
-      <input ref="/data/agriculturafinalidade/areavenda">
-        <label ref="jr:itext('/data/agriculturafinalidade/areavenda:label')"/>
-      </input>
-      <input ref="/data/agriculturafinalidade/areaconsumo">
-        <label ref="jr:itext('/data/agriculturafinalidade/areaconsumo:label')"/>
+      <input ref="/data/agriculturafinalidade/areatotal">
+        <label ref="jr:itext('/data/agriculturafinalidade/areatotal:label')"/>
       </input>
     </group>
     <group appearance="field-list">
