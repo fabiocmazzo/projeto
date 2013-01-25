@@ -95,7 +95,12 @@
   	for ($i = 0; $i < $countArray; $i++) {
   		$retorno = $retorno[$arrayMap[$i]];
   	}
-     return $retorno;
+
+  	/* Se for um array é pq está vazia a propriedade */
+  	if (is_array($retorno)) {
+  		return '';
+  	}
+  	 return $retorno;
   	
   }
   
@@ -120,17 +125,24 @@
  		  $this->formulario[] = new Question('input',$this->getLabel($this->removeJr($question->label->attributes()->ref[0])),false, false, $this->getTextResult($this->removeData($question->attributes()->ref[0])));
  		  break; 
  		case 'geopoint':
- 		  $this->formulario[] = new Question('input',$this->getLabel($this->removeJr($question->label->attributes()->ref[0])));
+ 		  $this->formulario[] = new Question('geopoint',$this->getLabel($this->removeJr($question->label->attributes()->ref[0])),false,false, $this->getTextResult($this->removeData($question->attributes()->ref[0])));
  		  break;
  		case 'upload':
- 		  	$this->formulario[] = new Question('input',$this->getLabel($this->removeJr($question->label->attributes()->ref[0])));
+ 		  	$this->formulario[] = new Question('upload',$this->getLabel($this->removeJr($question->label->attributes()->ref[0])),false, false, $this->getTextResult($this->removeData($question->attributes()->ref[0])));
  		  	break;
  		case 'select':
  		   $label = $this->getLabel($this->removeJr($question->label->attributes()->ref[0]));
  		   $options = array();
  		  foreach ($question->children() as $child) {
-			   if($child->getName() == 'item') {
-			   	$options[] = $this->getLabel($this->removeJr($child->label->attributes()->ref[0])); 
+		    
+ 		  	$checked = '';
+ 		  	$valores = split(' ', $this->getTextResult($this->removeData($question->attributes()->ref[0])));
+ 		  	if(in_array($child->value, $valores)) {
+ 		  		$checked = 'checked';
+ 		  	}
+ 		  	
+ 		  	if($child->getName() == 'item') {
+			   	$options[] = array('label' => $this->getLabel($this->removeJr($child->label->attributes()->ref[0])), 'checked' => $checked); 
 			   }
  		  }
  		  $this->formulario[] = new Question('select',$label, $options);
@@ -142,7 +154,11 @@
  		   $options = array();
  		  foreach ($question->children() as $child) {
 			   if($child->getName() == 'item') {
-			   	$options[] = $this->getLabel($this->removeJr($child->label->attributes()->ref[0])); 
+			   	$checked = '';
+			   	if($child->value == $this->getTextResult($this->removeData($question->attributes()->ref[0]))) {
+			   	 $checked = 'checked';	
+			   	}
+			   	$options[] = array('label' => $this->getLabel($this->removeJr($child->label->attributes()->ref[0])), 'checked' => $checked); ; 
 			   }
  		  }
  		  $this->formulario[] = new Question('select1',$label, $options);

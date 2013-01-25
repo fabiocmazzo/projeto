@@ -42,7 +42,7 @@
         
         <?php
         
-        $sql = 'SELECT username, nome, case isadmin when "S" then "Sim" else "Não" end as admin, case status when "A" then "Ativo" else "Inativo" end status FROM usuarios';
+        $sql = 'SELECT username, nome, case isadmin when "S" then "Sim" else "Não" end as admin, case isAnalista when "S" then "Sim" else "Não" end as analista, case status when "A" then "Ativo" else "Inativo" end status FROM usuarios';
         $result = $db->query($sql);
 	   
         
@@ -59,6 +59,7 @@
                         <th class="th_id">Usuário</th>
                         <th class="th_status">Nome</th>
                         <th class="th_date">Administrador</th>
+                        <th class="th_date">Analista</th>
                         <th class="th_date">Status</th>
                         <th class="th_chexbox"> </th>
                     </tr>
@@ -72,6 +73,7 @@
                         <td class="subject"><a href="addUsuario.php?id=<?=$row['username']?>"><?=$row['username']?></a></td>
                         <td><span class="published"><?=$row['nome']?></span></td>
                         <td><?=$row['admin']?></td>
+                        <td><?=$row['analista']?></td>
                         <td><?=$row['status']?></td>
                         <td class="action"><a href="#"><img onclick="deleteUsuario('<?=$row['username']?>');" src="images/del.png" alt="delete"></a></td>
                     </tr>

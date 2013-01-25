@@ -13,6 +13,7 @@
 			              nome:          $("#nome").val(),
                           password:      $("#password").val(),
                           isAdmin:       $("#isAdmin:checked").val(),
+                          isAnalista:    $("#isAnalista:checked").val(),
                           status:        $("#status:checked").val()
                           
 			             }; 
@@ -100,6 +101,12 @@
                         <label>Administrador:</label>
                         <div class="indent">
                           <p><input type="checkbox" name="isAdmin" id="isAdmin" value="S" class="styled"  <?php if($row['isadmin'] == 'S')  { ?>  checked <?php } ?> /> <label>Sim</label></p>
+                        </div>
+                 </div> 
+                  <div class="elem">
+                        <label>Analista de Pesquisa:</label>
+                        <div class="indent">
+                          <p><input type="checkbox" name="isAnalista" id="isAnalista" value="S" class="styled"  <?php if($row['isAnalista'] == 'S')  { ?>  checked <?php } ?> /> <label>Sim</label></p>
                         </div>
                  </div> 
                  <div class="elem">

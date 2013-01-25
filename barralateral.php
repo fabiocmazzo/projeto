@@ -53,6 +53,14 @@
                 </ul>
     		</li>
        <?php } ?>
+     <?php if($_SESSION['isAnalista'] == 'S') { ?>
+           <li <?php if($pagina == 'pesquisasRecebidas') {?>class="expand"<?php } ?>>
+    			<a href="#"><span class="files icon">Resultados</span><span class="num">1</span></a>
+    			<ul class="acitem">
+    				<li><a href="pesquisasRecebidas"><span class="invoice icon">Pesquisas Recebidas</span></a></li>
+                </ul>
+    		</li>
+       <?php } ?>      
             
 	</ul>	
    

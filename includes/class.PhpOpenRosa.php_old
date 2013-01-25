@@ -1,0 +1,64 @@
+<?php
+/* Implementação do JavaOpenRosa
+ * Autor: Fabio Covolo Mazzo
+ * Data:  23/03/2013
+ * email: fabiomazzo@gmail.com
+ */
+  
+   function removeJr($string) {
+   	
+   	return str_replace("')","", str_replace("jr:itext('", "", $string));
+   	
+   	
+   }
+
+
+  function getLabel($texts, $attribute) {
+  	 foreach($texts as $text) {
+  	 	if($text->attributes()->id[0] == $attribute) {
+  	 	  return $text->value;	
+  	 	}
+  	 }
+  } 
+  
+ /* Abre o Grupo */
+ function openGroup($group) {
+ 	
+ 	return $group[0];
+ 	
+ }
+ 
+ 
+ function printQuestion($texts, $question) {
+ 	
+
+ 	
+ 	switch ($question->getName()) {
+
+ 		case 'label':
+ 		  echo getLabel($texts,removeJr($question->attributes()->ref[0])) . '<br/>';
+ 		  break;
+ 		case 'input':
+ 		  echo getLabel($texts,removeJr($question->label->attributes()->ref[0])) . '<br/>';
+ 		  break;
+ 		case 'select':
+ 		  echo getLabel($texts,removeJr($question->label->attributes()->ref[0])) . '<br/>';
+ 		  foreach ($question->children() as $child) {
+			   if($child->getName() == 'item') {
+			   	 echo getLabel($texts,removeJr($child->label->attributes()->ref[0])) . '<br/>'; 
+			   }
+ 		  }
+ 		 break;
+ 		 case 'select1':
+ 		 	echo getLabel($texts,removeJr($question->label->attributes()->ref[0])) . '<br/>';
+ 		 	foreach ($question->children() as $child) {
+ 		 		if($child->getName() == 'item') {
+ 		 			echo getLabel($texts,removeJr($child->label->attributes()->ref[0])) . '<br/>';
+ 		 		}
+ 		 	}
+ 		 	break;
+ 	}
+ 	
+ 	
+ 	
+ }

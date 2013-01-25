@@ -13,6 +13,7 @@
         $_SESSION['usuarioLogado'] = $row['username'];
         $_SESSION['nomeUsuario'] = $row['nome'];
         $_SESSION['isAdmin'] = $row['isadmin'];
+        $_SESSION['isAnalista'] = $row['isAnalista'];
         $_SESSION['logado'] = true;
         echo 'sucesso';
     } else {
@@ -21,6 +22,8 @@
         $_SESSION['logado'] = false;
         $_SESSION['nomeUsuario'] = ''; 
         $_SESSION['isAdmin'] = '';
+        $_SESSION['isAnalista'] = '';
+        
        echo 'Usuario ou senha inválidos';
        
     }

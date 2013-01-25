@@ -20,10 +20,10 @@
 	 /* Se foi passado o ID é porque é um questionário com dados, se não é apenas o modelo */
 	 if(isset($_REQUEST['id'])) {
 	 	$familia = $familias->findOne(array('_id' => new MongoId($_REQUEST['id'])));
-	  	$openRosa = new PhpOpenRosa('http://www.cadastrofamilias.com.br/xml/familia.php?idPesquisador=6&idComunidade=65',true,$familia);
+	  	$openRosa = new PhpOpenRosa('http://www.cadastrofamilias.com.br/xml/familia.php',true,$familia);
 	
 	 } else {
-	 	$openRosa = new PhpOpenRosa('http://www.cadastrofamilias.com.br/xml/familia.php?idPesquisador=6&idComunidade=65');
+	 	$openRosa = new PhpOpenRosa('http://www.cadastrofamilias.com.br/xml/familia.php');
 	 }
  
 	
@@ -38,18 +38,18 @@
        echo '<br/>';
        
        if($form->type == 'input') {
-       	echo '<input type="text" size="100" readonly value="'. $form->resultText .'"/>';
+       	echo '<input type="text" size="100" readonly value="'. utf8_decode($form->resultText) .'"/>';
        	echo '<br/><br/>';
        }
        
        if($form->type == 'geopoint') {
-       	echo '<input type="text" size="100" readonly />';
+       	echo '<input type="text" size="100" readonly value="'. utf8_decode($form->resultText) .'"/>';
        	echo '<br/><br/>';
        }
        
        if($form->type == 'select') {
        	foreach($form->options as $option) {
-     	  echo '<input type="checkbox" disabled />' . utf8_decode($option) . '<br/>';  		
+     	  echo '<input type="checkbox" disabled ' . $option['checked'] . ' />' . utf8_decode($option['label']) . '<br/>';  		
        	}
        	echo '<br/><br/>';
        }
@@ -57,11 +57,16 @@
        
        if($form->type == 'select1') {
        	foreach($form->options as $option) {
-       		echo '<input type="radio" disabled />' . utf8_decode($option) . '<br/>';
+       		echo '<input type="radio" disabled ' . $option['checked'] . '/>' . utf8_decode($option['label']) . '<br/>';
        	}
        	echo '<br/><br/>';
        }
        
+       
+       if($form->type == 'upload') {
+       	echo '<img src="formularios//' . $form->resultText . '" />';
+       	echo '<br/><br/>';
+       }
        
 	 }
 	?>
