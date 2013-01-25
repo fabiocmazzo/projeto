@@ -55,9 +55,11 @@
        <?php } ?>
      <?php if($_SESSION['isAnalista'] == 'S') { ?>
            <li <?php if($pagina == 'pesquisasRecebidas') {?>class="expand"<?php } ?>>
-    			<a href="#"><span class="files icon">Resultados</span><span class="num">1</span></a>
+    			<a href="#"><span class="files icon">Resultados</span><span class="num">3</span></a>
     			<ul class="acitem">
-    				<li><a href="pesquisasRecebidas"><span class="invoice icon">Pesquisas Recebidas</span></a></li>
+    				<li><a href="pesquisasRecebidasFamilia.php"><span class="invoice icon">Pesquisas Recebidas - Família</span></a></li>
+    				<li><a href="pesquisasRecebidasComunidade.php"><span class="invoice icon">Pesquisas Recebidas - Comunidade</span></a></li>
+    				<li><a href="pesquisasRecebidasAcaoSocial.php"><span class="invoice icon">Pesquisas Recebidas - Ação Social</span></a></li>
                 </ul>
     		</li>
        <?php } ?>      

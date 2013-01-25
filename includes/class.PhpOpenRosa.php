@@ -64,6 +64,17 @@
    	
    }
 
+   /* Remove o jr:count do padrão OpenRosa para busca
+    * de informações
+   */
+   private function removeJrCount($string) {
+   
+   	return str_replace("')","", str_replace("jr:count('", "", $string));
+   
+   }
+   
+     
+   
    /* Abre o Grupo */
    private function openGroup($group) {
    
@@ -104,6 +115,23 @@
   	
   }
   
+  
+  private function getArrayOrTextResult($attribute) {
+  
+  	 
+  	 
+  	$arrayMap = split("/",$attribute);
+  	$countArray = count($arrayMap);
+  	$retorno = $this->results;
+  	 
+  	for ($i = 0; $i < $countArray; $i++) {
+  		$retorno = $retorno[$arrayMap[$i]];
+  	}
+  
+  
+  	return $retorno;
+  	 
+  }
   
   /* Retira o /data do começo do atributo */
   private function removeData($attribute) {
@@ -164,6 +192,44 @@
  		  $this->formulario[] = new Question('select1',$label, $options);
  		  
  		 break;
+ 		 
+ 		 case 'repeat':
+ 		 	
+ 		 	$inputs = array();
+ 		 	
+ 		 	$caminhoArray = $question->attributes()->nodeset[0];
+ 		 	
+ 		 	$arrayResultado = $this->getArrayorTextResult($this->removeData($caminhoArray));
+ 		 	
+ 		 	if(is_array($arrayResultado)) {
+ 		 		$numero = count($arrayResultado);
+ 		 	}
+ 		 	
+ 		 	foreach ($question->children() as $child) {
+ 		 	
+ 		 	  if($child->getName() == 'input') {
+                   
+ 		 		    
+ 		 		    if ($numero == '') {
+ 		 		    	$numero = 1;
+ 		 		    }
+ 		 		    
+ 		 		    /* Vou pegar o último elemento, vou dar um split e pegar o último */
+ 		 		    $nomeCaminho = $child->attributes()->ref[0];
+ 		 		    $arrayCaminho = split("/",$nomeCaminho);
+ 		 		    $nomeElemento = end($arrayCaminho); 
+
+ 		 		    for($iRepeat = 0; $iRepeat < $numero; $iRepeat++) { 
+ 		 		       $this->formulario[] = new Question('input',$this->getLabel($this->removeJr($child->label->attributes()->ref[0])),false, false,  (string) $arrayResultado[$iRepeat][$nomeElemento] /*$this->getTextResult($this->removeData($question->attributes()->nodeset[0]))*/);
+ 		 		    }  
+ 		 		    		 			
+ 		 		}
+ 		 	}
+ 		 	
+ 		 		
+ 		 	break;
+ 		 
+ 		 
  	}
  	
  }

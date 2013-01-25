@@ -1,11 +1,18 @@
-<html>
-<body>
 <?php
 
  require_once 'includes/class.Db.php';
  require_once 'includes/class.PhpOpenRosa.php';
  require_once 'includes/connectMongo.php';
+ require_once 'includes/config.php';
  
+?>
+
+<html>
+<body>
+
+<?php 
+
+
  
  /* Vou conectar com a collections familias */
 	 try { 
@@ -17,13 +24,19 @@
 	 }
 	 
 	 
+	 $sql = 'select url from pesquisas where tipopesquisa = "'. $_REQUEST['tipoPesquisa'] .  '"';
+	 $resultTipo = $db->query($sql);
+	 $rowT = $resultTipo->fetch_assoc();
+	 
+	 
+	 
 	 /* Se foi passado o ID é porque é um questionário com dados, se não é apenas o modelo */
 	 if(isset($_REQUEST['id'])) {
 	 	$familia = $familias->findOne(array('_id' => new MongoId($_REQUEST['id'])));
-	  	$openRosa = new PhpOpenRosa('http://www.cadastrofamilias.com.br/xml/familia.php',true,$familia);
+	  	$openRosa = new PhpOpenRosa($rowT['url'],true,$familia);
 	
 	 } else {
-	 	$openRosa = new PhpOpenRosa('http://www.cadastrofamilias.com.br/xml/familia.php');
+	 	$openRosa = new PhpOpenRosa($rowT['url']);
 	 }
  
 	

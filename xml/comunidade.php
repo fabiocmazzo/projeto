@@ -1065,7 +1065,7 @@
       <bind nodeset="/data/associacaocomunitaria" required="true()" type="string" relevant="(selected(/data/organizacao,&quot;associacao&quot;))"/>
       <bind nodeset="/data/cooperativa" required="true()" type="string" relevant="(selected(/data/organizacao,&quot;cooperativa&quot;))"/>
       <bind nodeset="/data/movimentodemulheres" required="true()" type="string" relevant="(selected(/data/organizacao,&quot;mulheres&quot;))"/>
-      <bind nodeset="/data/pastoral" type="string"  required="true()"relevant="(selected(/data/organizacao,&quot;pastoral&quot;))"/>
+      <bind nodeset="/data/pastoral" type="string"  required="true()" relevant="(selected(/data/organizacao,&quot;pastoral&quot;))"/>
       <bind nodeset="/data/jovens" type="string" required="true()" relevant="(selected(/data/organizacao,&quot;jovens&quot;))"/>
       <bind nodeset="/data/apl" type="string" required="true()" relevant="(selected(/data/organizacao,&quot;apl&quot;))"/>
       <bind nodeset="/data/grupodemulheres" required="true()" type="string" relevant="(selected(/data/organizacao,&quot;grupo&quot;))"/>
